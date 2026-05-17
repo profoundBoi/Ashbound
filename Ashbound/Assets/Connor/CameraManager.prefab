@@ -180,10 +180,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6448441407028942827}
   - component: {fileID: 1614975882969807521}
-  - component: {fileID: 7154276845037376879}
   - component: {fileID: 8003695167029498088}
+  - component: {fileID: 1424147852244791361}
   m_Layer: 0
-  m_Name: CinemachineCamera
+  m_Name: RoofTop Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,8 +197,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4868719295479293448}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13514721, y: -0.3398263, z: 0.04941451, w: 0.9294147}
-  m_LocalPosition: {x: 10.5141, y: 6.8900023, z: -5.8500004}
+  m_LocalRotation: {x: 0.2700946, y: -0.4465873, z: 0.14345089, w: 0.8408511}
+  m_LocalPosition: {x: 8.393929, y: 8.706413, z: -5.141553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -247,25 +247,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &7154276845037376879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4868719295479293448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
-  TrackerSettings:
-    BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
-    AngularDampingMode: 0
-    RotationDamping: {x: 1, y: 1, z: 1}
-    QuaternionDamping: 1
-  FollowOffset: {x: 11.03, y: 5.89, z: -6.73}
 --- !u!114 &8003695167029498088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
   Composition:
-    ScreenPosition: {x: -0.18, y: 0.12}
+    ScreenPosition: {x: -0.02, y: -0.01}
     DeadZone:
       Enabled: 0
       Size: {x: 0.2, y: 0.2}
@@ -289,7 +270,38 @@ MonoBehaviour:
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: -0.84, y: -0.31, z: 0}
-  Damping: {x: 2.87, y: 0.5}
+  Damping: {x: 0.5, y: 0.5}
+  Lookahead:
+    Enabled: 0
+    Time: 0
+    Smoothing: 0
+    IgnoreY: 0
+--- !u!114 &1424147852244791361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4868719295479293448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
+  CameraDistance: 13.23
+  DeadZoneDepth: 0
+  Composition:
+    ScreenPosition: {x: 0, y: 0}
+    DeadZone:
+      Enabled: 0
+      Size: {x: 0.2, y: 0.2}
+    HardLimits:
+      Enabled: 0
+      Size: {x: 0.8, y: 0.8}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 0, z: 0}
+  Damping: {x: 1, y: 1, z: 1}
   Lookahead:
     Enabled: 0
     Time: 0
