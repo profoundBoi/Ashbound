@@ -153,7 +153,6 @@ public class PlayerController3D : MonoBehaviour
         if (context.performed && IsGrounded())
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
-            PlayJump();
         }
     }
 
@@ -169,79 +168,10 @@ public class PlayerController3D : MonoBehaviour
         }
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            isChargingWeapon = true;
-            if (moveInput.x == 0 && moveInput.z == 0)
-            {
-                StartCoroutine(PlayShoot());
-            }
-            else if (IsGrounded())
-            {
-                StartCoroutine(PlayShoot());
-            }
-        }
-        else if (context.canceled)
-        {
-         
-        }
-    }
-
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        if (context.canceled)
-        {
-            Ray ray = new Ray(RayPoint.position, RayPoint.forward);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 5f, Interact))
-            {
-                if (hit.collider.CompareTag("Weapon"))
-                {
-                    heldWeapon = hit.collider.gameObject;
-                    heldWeapon.transform.position = HoldingPosition.position;
-                    heldWeapon.transform.parent = HoldingPosition;
-                }
-            }
-        }
-    }
-
-    void CheckForInteraction()
-    {
-        Ray ray = new Ray(RayPoint.position, RayPoint.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 5f, Interact))
-        {
-            InteractableObject = hit.collider.gameObject;
-        }
-        else
-        {
-            if (InteractableObject != null)
-            {
-                InteractableObject = null;
-            }
-        }
-    }
-    public void OnGameSelection(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            SceneManager.LoadScene("GameSelect");
-    }
-
     void FixedUpdate()
     {
         Vector3 move = rb.position + transform.TransformDirection(moveInput) * speed * Time.fixedDeltaTime;
         rb.MovePosition(move);
-        CheckForInteraction();
-        
-        if (heldWeapon != null)
-        {
-            CheckForEnemy();
-
-        }
     }
 
     void LateUpdate()
@@ -256,113 +186,10 @@ public class PlayerController3D : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, minLookX, maxLookX);
 
         CameraHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-        
-        //Animations
-        if (moveInput.x > 0 || moveInput.z > 0 || moveInput.x < 0 || moveInput.z < 0)
-        {
-            if (IsGrounded())
-            {
-                if (speed == RunSpeed)
-                {
-                    PlayRun();
-                }
-                else if (speed != RunSpeed)
-                {
-                    PlayWalk();
-                }
-            }
-            else if (!IsGrounded())
-            {
-                PlayJump();
-
-            }
-        }
-        else if (moveInput.x == 0 && moveInput.z == 0)
-        {
-            if (IsGrounded())
-            {
-                PlayIdle();
-            }
-            else if (!IsGrounded())
-            {
-                PlayJump();
-
-            }
-        }
-
     }
 
-    void PlayJump()
-    {
-        for (int i = 0; i < AnimationBools.Count; i++)
-        {
-            playerAnimations.SetBool(AnimationBools[i], false);
-        }
-        playerAnimations.SetBool(AnimationBools[2], true);
-
-    }
-
-    void PlayWalk()
-    {
-        for (int i = 0; i < AnimationBools.Count; i++)
-        {
-            playerAnimations.SetBool(AnimationBools[i], false);
-        }
-        playerAnimations.SetBool(AnimationBools[0], true);
-    }
-
-    void PlayRun()
-    {
-        for (int i = 0; i < AnimationBools.Count; i++)
-        {
-            playerAnimations.SetBool(AnimationBools[i], false);
-        }
-        playerAnimations.SetBool(AnimationBools[1], true);
-    }
-
-    IEnumerator PlayShoot()
-    {
-
-        for (int i = 0; i < AnimationBools.Count; i++)
-        {
-            playerAnimations.SetBool(AnimationBools[i], false);
-        }
-        playerAnimations.SetBool(AnimationBools[3], true);
-
-        yield return new WaitForSeconds(0.5f);
-        playerAnimations.SetBool(AnimationBools[3], false);
-
-    }
-
-
-    void PlayIdle()
-    {
-        for (int i = 0; i < AnimationBools.Count; i++)
-        {
-            playerAnimations.SetBool(AnimationBools[i], false);
-        }
-    }
     bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, 1.1f);
-    }
-
-    void CheckForEnemy()
-    {
-        Ray ray = new Ray(AimPoint.position, AimPoint.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, AimDistance, EnemyLayer))
-        {
-            EnemyTarget = hit.collider.gameObject;
-        }
-        else
-        {
-            if (EnemyTarget != null)
-            {
-                EnemyTarget = null;
-            }
-        }
     }
 }

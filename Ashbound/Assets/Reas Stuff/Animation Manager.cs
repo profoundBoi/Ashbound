@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.LowLevel;
@@ -11,6 +12,8 @@ public class AnimationManager : MonoBehaviour
     private Animator playerAnimator;
     [SerializeField]
     private List<string> AnimationNames;
+    [SerializeField]
+    public List<bool> TrickBools;
     public bool canPerformTrick = false;
     [SerializeField] private PlayerController3D2 playerScript;
     private bool PlayerStop;
@@ -31,6 +34,10 @@ public class AnimationManager : MonoBehaviour
                 playerScript.speed -= Time.deltaTime * 8;
             }
         }
+
+        canPerformTrick = TrickBools.All(b => b);
+        
+
     }
     void PlayNewAnimation()
     {
@@ -53,6 +60,10 @@ public class AnimationManager : MonoBehaviour
                     if (other.name == "Run")
                     {
                         canPerformTrick = false;
+                        for(int i = 0; i<3; i++)
+                        {
+                            TrickBools[i] = false;
+                        }
                     }
                 }
                 else return;

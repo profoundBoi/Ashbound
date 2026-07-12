@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -12,7 +11,6 @@ public class PlayerController3D2 : MonoBehaviour
 {
     [SerializeField]
     private Vector3 moveInput;
-
     private Rigidbody rb;
     private PlayerInput playerInput;
     private Animator animator;
@@ -21,12 +19,14 @@ public class PlayerController3D2 : MonoBehaviour
     public float speed = 5f;
     public float MaxSpeed;
     public float jumpForce = 5f;
+    public float upForceAmount = 10f;
 
     //PLayer Animations
     [Header("Animations")]
     [SerializeField]
     private Animator playerAnimations;
     private bool isJumping;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -39,7 +39,6 @@ public class PlayerController3D2 : MonoBehaviour
         rb.freezeRotation = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.lockState = CursorLockMode.None;
-
     }
 
     // MOVEMENT
@@ -47,7 +46,6 @@ public class PlayerController3D2 : MonoBehaviour
     {
         moveInput = new Vector3(1, 0, 0);
     }
-
 
     // JUMP
     public void OnJump(InputAction.CallbackContext context)
@@ -58,7 +56,6 @@ public class PlayerController3D2 : MonoBehaviour
         }
     }
 
-   
     public void OnGameSelection(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -70,16 +67,16 @@ public class PlayerController3D2 : MonoBehaviour
         Vector3 move = rb.position + transform.TransformDirection(moveInput) * speed * Time.fixedDeltaTime;
         rb.MovePosition(move);
     }
-
-    void LateUpdate()
-    {
-        
-    }
-
     bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("UpForce"))
+        {
+            rb.AddForce(Vector3.up * upForceAmount, ForceMode.Impulse);
+        }
+    }
 }
