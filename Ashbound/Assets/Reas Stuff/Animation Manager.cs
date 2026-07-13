@@ -42,6 +42,8 @@ public class AnimationManager : MonoBehaviour
     void PlayNewAnimation()
     {
         playerAnimator.SetBool(animationToPlay, true);
+        CapsuleCollider Cc = GetComponent<CapsuleCollider>();
+        Cc.height = 0;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,6 +65,8 @@ public class AnimationManager : MonoBehaviour
                         for(int i = 0; i<3; i++)
                         {
                             TrickBools[i] = false;
+                            CapsuleCollider Cc = GetComponent<CapsuleCollider>();
+                            Cc.height = 3.94f;
                         }
                     }
                 }
