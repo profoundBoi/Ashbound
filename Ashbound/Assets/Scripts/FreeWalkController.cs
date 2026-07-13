@@ -2,22 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// A stripped-down "free walk" controller for a hub menu: movement, look,
-/// jump, run, and basic locomotion animation, plus walking up to a
-/// MissionPoint and pressing a button to view or start it.
-/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class FreeWalkController : MonoBehaviour
 {
     private Rigidbody rb;
-
-    [Header("Mission Interaction")]
-    [Tooltip("UI shown/hidden automatically when a mission is in range (e.g. a 'Press E' prompt with the mission name).")]
-    [SerializeField] private GameObject interactPrompt;
-    [SerializeField] private UnityEngine.UI.Text interactPromptText; // optional, leave empty if not using
-
-    private MissionPoint currentMission;
 
     [Header("Movement")]
     public float speed = 5f;
@@ -26,23 +14,28 @@ public class FreeWalkController : MonoBehaviour
 
     private Vector3 moveInput;
     private bool isRunning;
+    private MissionPoint currentMission;
 
-    [Header("Look")]
+    [Header("Look (Cinemachine)")]
     public float lookSensitivity = 120f;
-    [SerializeField] private Transform cameraHolder;
+    [Tooltip("Assign this as the 'Tracking Target' on your CinemachineCamera (the Follow/LookAt target). " +
+             "Cinemachine reads this transform's rotation each frame to orbit the camera — this script only " +
+             "ever rotates this transform, it never touches the camera itself.")]
+    [SerializeField] private Transform cinemachineCameraTarget;
     public float minLookX = -60f;
     public float maxLookX = 60f;
 
     private Vector2 lookInput;
     private float xRotation;
+    private float pendingYaw;
 
     [Header("Ground Check")]
     public float groundCheckDistance = 1.1f;
-    public LayerMask groundMask = ~0; // defaults to "everything"; set explicitly in Inspector if needed
+    public LayerMask groundMask = ~0;
 
     [Header("Animation")]
     [SerializeField] private Animator playerAnimations;
-    [SerializeField] private List<string> animationBools; // 0=Walk, 1=Run, 2=Jump
+    [SerializeField] private List<string> animationBools; 
 
     void Awake()
     {
@@ -52,10 +45,11 @@ public class FreeWalkController : MonoBehaviour
     void Start()
     {
         rb.freezeRotation = true;
+
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // ---- Input callbacks (wired up via PlayerInput's Unity Events or SendMessages) ----
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -88,54 +82,52 @@ public class FreeWalkController : MonoBehaviour
         }
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+    public void OnStartMission(InputAction.CallbackContext context)
     {
         if (context.performed && currentMission != null)
         {
-            currentMission.Interact();
+            currentMission.StartMission();
         }
     }
-
-    // ---- Mission trigger detection ----
-    // Requires a trigger Collider on this GameObject (or a child) and each
-    // MissionPoint to have its own trigger Collider tagged/layered so they
-    // can be found here. Simplest setup: put a MissionPoint on the mission
-    // object with a large-ish trigger Collider (e.g. a sphere the player
-    // walks into).
 
     void OnTriggerEnter(Collider other)
     {
         MissionPoint mission = other.GetComponent<MissionPoint>();
-        if (mission == null) return;
-
-        currentMission = mission;
-        ShowPrompt(mission);
+        if (mission != null)
+        {
+            currentMission = mission;
+            mission.Open();
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
         MissionPoint mission = other.GetComponent<MissionPoint>();
-        if (mission == null || mission != currentMission) return;
-
-        currentMission = null;
-        HidePrompt();
+        if (mission != null)
+        {
+            if (currentMission == mission)
+            {
+                currentMission = null;
+            }
+            mission.Close();
+        }
     }
 
-    private void ShowPrompt(MissionPoint mission)
+    void Update()
     {
-        if (interactPrompt != null) interactPrompt.SetActive(true);
-        if (interactPromptText != null) interactPromptText.text = $"Press E — View \"{mission.missionName}\"";
-    }
+        pendingYaw += lookInput.x * lookSensitivity * Time.deltaTime;
 
-    private void HidePrompt()
-    {
-        if (interactPrompt != null) interactPrompt.SetActive(false);
+        HandleLookPitch();
     }
-
-    // ---- Physics / movement ----
 
     void FixedUpdate()
     {
+        if (pendingYaw != 0f)
+        {
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, pendingYaw, 0f));
+            pendingYaw = 0f;
+        }
+
         float currentSpeed = isRunning ? speed * runMultiplier : speed;
         Vector3 move = rb.position + transform.TransformDirection(moveInput) * currentSpeed * Time.fixedDeltaTime;
         rb.MovePosition(move);
@@ -143,22 +135,18 @@ public class FreeWalkController : MonoBehaviour
 
     void LateUpdate()
     {
-        HandleLook();
         HandleAnimation();
     }
 
-    private void HandleLook()
+    private void HandleLookPitch()
     {
-        if (cameraHolder == null) return;
-
-        float mouseX = lookInput.x * lookSensitivity * Time.deltaTime;
-        transform.Rotate(Vector3.up * mouseX);
+        if (cinemachineCameraTarget == null) return;
 
         float mouseY = lookInput.y * lookSensitivity * Time.deltaTime;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, minLookX, maxLookX);
 
-        cameraHolder.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        cinemachineCameraTarget.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
     private void HandleAnimation()
@@ -172,13 +160,13 @@ public class FreeWalkController : MonoBehaviour
 
         if (!grounded)
         {
-            playerAnimations.SetBool(animationBools[2], true); // Jump
+            playerAnimations.SetBool(animationBools[2], true); 
         }
         else if (isMoving)
         {
-            playerAnimations.SetBool(isRunning ? animationBools[1] : animationBools[0], true); // Run / Walk
+            playerAnimations.SetBool(isRunning ? animationBools[1] : animationBools[0], true);
         }
-        // else: idle, all bools already false
+
     }
 
     private void ResetAnimBools()
