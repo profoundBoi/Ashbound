@@ -17,7 +17,7 @@ public class AnimationManager : MonoBehaviour
     public bool canPerformTrick = false;
     [SerializeField] private PlayerController3D2 playerScript;
     private bool PlayerStop;
-
+    [SerializeField] private CapsuleCollider Cc;
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
@@ -42,7 +42,6 @@ public class AnimationManager : MonoBehaviour
     void PlayNewAnimation()
     {
         playerAnimator.SetBool(animationToPlay, true);
-        CapsuleCollider Cc = GetComponent<CapsuleCollider>();
         Cc.height = 0;
     }
 
@@ -65,7 +64,6 @@ public class AnimationManager : MonoBehaviour
                         for(int i = 0; i<3; i++)
                         {
                             TrickBools[i] = false;
-                            CapsuleCollider Cc = GetComponent<CapsuleCollider>();
                             Cc.height = 3.94f;
                         }
                     }
