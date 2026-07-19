@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2174454148947251353}
   serializedVersion: 2
   m_LocalRotation: {x: 0.25898802, y: -0.46317178, z: 0.14360318, w: 0.8353295}
-  m_LocalPosition: {x: 8.820805, y: 7.8500004, z: -102.99682}
+  m_LocalPosition: {x: 10.24, y: 16.87, z: -103.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -159,6 +159,7 @@ Transform:
   - {fileID: 8055353058268351154}
   - {fileID: 4428398900046249356}
   - {fileID: 1422771181923404307}
+  - {fileID: 4073014593393087838}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5274997594841778307
@@ -189,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 5274997594841778307}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30703917, y: 0.0039683026, z: -0.0012802773, w: 0.95168775}
-  m_LocalPosition: {x: -1.4891955, y: 9.1, z: -109.81682}
+  m_LocalPosition: {x: -2.7707162, y: 8.800001, z: -107.30728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -286,6 +287,131 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!1 &5951937415020828555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4073014593393087838}
+  - component: {fileID: 8797258022611526473}
+  - component: {fileID: 4733983424656393754}
+  - component: {fileID: 322585896696502404}
+  m_Layer: 0
+  m_Name: CinemachineCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4073014593393087838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951937415020828555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.1185521, y: 0.1445597, z: -0.0174482, w: 0.98221356}
+  m_LocalPosition: {x: -4.730716, y: 1.0600009, z: -100.99728}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7419330265986858405}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8797258022611526473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951937415020828555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 1
+    m_Value: 15
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60.000004
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!114 &4733983424656393754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951937415020828555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 1, y: 1, z: 1}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: -2.07, y: 1.76, z: -6.88}
+--- !u!114 &322585896696502404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951937415020828555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38bda98361e1de48a4ca2bd86ea3c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
+  Composition:
+    ScreenPosition: {x: 0, y: 0}
+    DeadZone:
+      Enabled: 0
+      Size: {x: 0.2, y: 0.2}
+    HardLimits:
+      Enabled: 0
+      Size: {x: 0.8, y: 0.8}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 0, z: 0}
+  Damping: {x: 0.5, y: 0.5}
+  Lookahead:
+    Enabled: 0
+    Time: 0
+    Smoothing: 0
+    IgnoreY: 0
 --- !u!1 &6188766538782662512
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8769793400169212237
 Transform:
   m_ObjectHideFlags: 0
@@ -315,7 +441,7 @@ Transform:
   m_GameObject: {fileID: 6188766538782662512}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.0036888176, z: 0, w: 0.9999932}
-  m_LocalPosition: {x: -1.4083369, y: 1.0100001, z: -100.576706}
+  m_LocalPosition: {x: -2.6513448, y: -0.21400093, z: -92.84706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -382,7 +508,7 @@ MonoBehaviour:
   CameraSide: 0.5
   CameraDistance: 7.88
   AvoidObstacles:
-    Enabled: 0
+    Enabled: 1
     CollisionFilter:
       serializedVersion: 2
       m_Bits: 1
@@ -449,7 +575,7 @@ Transform:
   m_GameObject: {fileID: 6852957260058120789}
   serializedVersion: 2
   m_LocalRotation: {x: 0.21252678, y: -0.44731623, z: 0.11032138, w: 0.8617249}
-  m_LocalPosition: {x: 9.520804, y: 6.6000004, z: -104.296814}
+  m_LocalPosition: {x: 8.239284, y: 6.300001, z: -101.78728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
