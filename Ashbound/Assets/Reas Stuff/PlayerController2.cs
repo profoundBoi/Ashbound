@@ -19,7 +19,10 @@ public class PlayerController3D2 : MonoBehaviour
     public float speed = 5f;
     public float MaxSpeed;
     public float jumpForce = 5f;
+    private float JumpCount;
     public float upForceAmount = 10f;
+    public float upForceAmount2 = 10f;
+    public float upForceAmount3 = 10f;
 
     //PLayer Animations
     [Header("Animations")]
@@ -76,7 +79,22 @@ public class PlayerController3D2 : MonoBehaviour
     {
         if (other.CompareTag("UpForce"))
         {
-            rb.AddForce(Vector3.up * upForceAmount, ForceMode.Impulse);
+            if (JumpCount  == 0)
+            {
+                rb.AddForce(Vector3.up * upForceAmount, ForceMode.Impulse);
+                JumpCount++;
+            }
+            else if (JumpCount == 1)
+            {
+                rb.AddForce(Vector3.up * upForceAmount2, ForceMode.Impulse);
+                speed = 8;
+                JumpCount++;
+            }
+            else if (JumpCount == 2)
+            {
+                rb.AddForce(Vector3.up * upForceAmount3, ForceMode.Impulse);
+                speed = 12;
+            }
         }
     }
 }

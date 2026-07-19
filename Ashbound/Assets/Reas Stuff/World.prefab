@@ -3477,9 +3477,6 @@ PrefabInstance:
       addedObject: {fileID: 7815921200170620902}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddc945ab4772a214899c8696b46f9475, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2178880602819484299}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddc945ab4772a214899c8696b46f9475, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7132046921291159357}
   m_SourcePrefab: {fileID: 100100000, guid: ddc945ab4772a214899c8696b46f9475, type: 3}
 --- !u!1 &3699225155197525232 stripped
@@ -3552,30 +3549,9 @@ MonoBehaviour:
   speed: 15
   MaxSpeed: 15
   jumpForce: 5
+  upForceAmount: 10
+  upForceAmount2: 10
   playerAnimations: {fileID: 0}
---- !u!136 &2178880602819484299
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3699225155197525232}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 3.94
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.72, z: 0}
 --- !u!114 &7132046921291159357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3597,7 +3573,14 @@ MonoBehaviour:
   - Stop
   - Run
   - Slide
+  TrickBools: 
   canPerformTrick: 1
+  playerScript: {fileID: 0}
+  Cc: {fileID: 0}
+  trickColliderHeight: 1
+  defaultColliderHeight: 3.94
+  stopDeceleration: 8
+  stopSpeedThreshold: 0.05
 --- !u!4 &4043556272120563274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ddc945ab4772a214899c8696b46f9475, type: 3}

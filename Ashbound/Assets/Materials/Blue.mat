@@ -246,11 +246,11 @@ Material:
     m_Ints:
     - _ToonMaterialVersion: 0
     m_Floats:
-    - _1st2nd_Shades_Feather: 0.668
+    - _1st2nd_Shades_Feather: 0.0001
     - _1st_ShadeColor_Feather: 0.0001
-    - _1st_ShadeColor_Step: 0.706
-    - _2nd_ShadeColor_Feather: 0.668
-    - _2nd_ShadeColor_Step: 0.786
+    - _1st_ShadeColor_Step: 0.581
+    - _2nd_ShadeColor_Feather: 0.0001
+    - _2nd_ShadeColor_Step: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ARSampler_AlphaOn: 0
@@ -279,7 +279,7 @@ Material:
     - _AutoRenderQueue: 1
     - _BaseColorOverridden: 0
     - _BaseColorVisible: 1
-    - _BaseColor_Step: 0.706
+    - _BaseColor_Step: 0.581
     - _BaseShade_Feather: 0.0001
     - _Base_Speed: 0
     - _Blend: 0
@@ -416,7 +416,7 @@ Material:
     - _SecondShadeOverridden: 0
     - _SecondShadeVisible: 1
     - _Set_SystemShadowsToBase: 1
-    - _ShadeColor_Step: 0.786
+    - _ShadeColor_Step: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -469,7 +469,7 @@ Material:
     - _Tweak_MatcapMaskLevel: 0
     - _Tweak_RimLightMaskLevel: 0
     - _Tweak_ShadingGradeMapLevel: 0
-    - _Tweak_SystemShadowsLevel: -0.163
+    - _Tweak_SystemShadowsLevel: -0.2
     - _Tweak_transparency: 0
     - _UVDetail: 0
     - _Unlit_Intensity: 0
