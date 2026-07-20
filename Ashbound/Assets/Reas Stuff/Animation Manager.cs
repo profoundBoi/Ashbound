@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -132,7 +133,15 @@ public class AnimationManager : MonoBehaviour
                 PlayerStop = true;
                 animationToPlay = "Stop";
                 playerAnimator.SetBool(animationToPlay, true);
+                StartCoroutine(StopPlayer());
             }
         }
+    }
+
+    IEnumerator StopPlayer()
+    {
+        yield return new WaitForSeconds(1);
+        OnPlayerStopped?.Invoke();
+
     }
 }
