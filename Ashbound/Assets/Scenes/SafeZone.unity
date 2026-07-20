@@ -16096,7 +16096,7 @@ MonoBehaviour:
   missionName: Mission01
   missionDescription: test your skills
   missionThumbnail: {fileID: 0}
-  missionSceneName: Level01BlockOut
+  missionSceneName: ReaTestScene
   onOpen:
     m_PersistentCalls:
       m_Calls:
