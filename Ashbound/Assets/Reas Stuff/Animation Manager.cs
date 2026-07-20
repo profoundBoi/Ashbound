@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimationManager : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class AnimationManager : MonoBehaviour
     [SerializeField] private float stopDeceleration = 8f;
     [SerializeField] private float stopSpeedThreshold = 0.05f; // treat "close enough to 0" as stopped
 
+    [Header("Events")]
+    public UnityEvent OnPlayerStopped;
+
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
@@ -52,6 +56,7 @@ public class AnimationManager : MonoBehaviour
                 // this branch stops fighting future speed changes (e.g. Run).
                 playerScript.speed = 0;
                 PlayerStop = false;
+                OnPlayerStopped?.Invoke();
             }
         }
 
