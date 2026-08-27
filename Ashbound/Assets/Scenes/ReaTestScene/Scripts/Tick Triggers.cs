@@ -19,9 +19,17 @@ public class TrickTriggers : MonoBehaviour
     private List<int> BoolPosition;
     [SerializeField]
     private float trickWaitTime;
+    [SerializeField]
     private GameObject _player;
     private Animator _playerAnimator;
+    private bool _trickCompleted;
+    [SerializeField]
+    private UIManager _manager;
 
+    private void Start()
+    {
+        _manager = FindFirstObjectByType<UIManager>();
+    }
     void SlowDownTime()
     {
         SlowTimePanel.SetActive(true);
@@ -40,6 +48,7 @@ public class TrickTriggers : MonoBehaviour
         ResumeTime();
         RemoveAllUI();
         canRecordButtons = false;
+        _trickCompleted = true;
 
     }
 
@@ -51,7 +60,20 @@ public class TrickTriggers : MonoBehaviour
             Trickbools[i] = false;
         }
         canRecordButtons = false;
+        _playerAnimator.SetBool("Fail", true);
+        StartCoroutine(SlowDownPlayer());
+        if (_manager != null)
+        {
+            _manager.ShowRetryPanel();
+        }
+    }
 
+    IEnumerator SlowDownPlayer()
+    {
+        PlayerController _playerScript = _player.GetComponent<PlayerController>();
+        _playerScript.speed = 3;
+        yield return new WaitForSeconds(1f);
+        _playerScript.speed = 0;
     }
 
     public void MoveToNextButton()
@@ -105,6 +127,9 @@ public class TrickTriggers : MonoBehaviour
             TrickActivation();
             PlayerController _playerScript = other.gameObject.GetComponent<PlayerController>();
             _playerScript._trickTriggerScript = GetComponent<TrickTriggers>();
+            _player = other.gameObject;
+            _playerAnimator = _player.GetComponent<Animator>();
+
         }
     }
 
@@ -112,8 +137,14 @@ public class TrickTriggers : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _player = other.gameObject;
-            StartCoroutine(PerformTrick());
+            if (_trickCompleted)
+            {
+                StartCoroutine(PerformTrick());
+            }
+            else
+            {
+                FailTrick();
+            }
         }
     }
 
@@ -121,7 +152,6 @@ public class TrickTriggers : MonoBehaviour
     {
         if (_player != null)
         {
-            _playerAnimator = _player.GetComponent<Animator>();
             if (_playerAnimator != null)
             {
                 _playerAnimator.SetBool(Trick, true);
