@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Unity.VisualScripting;
@@ -16,7 +17,10 @@ public class TrickTriggers : MonoBehaviour
     public bool canRecordButtons;
     [SerializeField]
     private List<int> BoolPosition;
-
+    [SerializeField]
+    private float trickWaitTime;
+    private GameObject _player;
+    private Animator _playerAnimator;
 
     void SlowDownTime()
     {
@@ -42,7 +46,7 @@ public class TrickTriggers : MonoBehaviour
     public void FailTrick()
     {
         ResumeTime();
-        for(int i = 0; i < Trickbools.Count; i++)
+        for (int i = 0; i < Trickbools.Count; i++)
         {
             Trickbools[i] = false;
         }
@@ -52,12 +56,12 @@ public class TrickTriggers : MonoBehaviour
 
     public void MoveToNextButton()
     {
-        if (_buttonIndex < BoolPosition.Count -1)
+        if (_buttonIndex < BoolPosition.Count - 1)
         {
             _buttonIndex++;
             TrickActivation();
         }
-        else if (_buttonIndex == BoolPosition.Count -1)
+        else if (_buttonIndex == BoolPosition.Count - 1)
         {
             TrickComplete();
         }
@@ -104,7 +108,29 @@ public class TrickTriggers : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _player = other.gameObject;
+            StartCoroutine(PerformTrick());
+        }
+    }
 
+    IEnumerator PerformTrick()
+    {
+        if (_player != null)
+        {
+            _playerAnimator = _player.GetComponent<Animator>();
+            if (_playerAnimator != null)
+            {
+                _playerAnimator.SetBool(Trick, true);
+            }
+        }
+        yield return new WaitForSeconds(trickWaitTime);
+
+        _playerAnimator.SetBool(Trick, false);
+    }
 
 
 }
