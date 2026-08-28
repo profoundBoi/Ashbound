@@ -25,6 +25,8 @@ public class TrickTriggers : MonoBehaviour
     private bool _trickCompleted;
     [SerializeField]
     private UIManager _manager;
+    [SerializeField]
+    private int _speedRequired;
 
     private void Start()
     {
@@ -123,13 +125,22 @@ public class TrickTriggers : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canRecordButtons = true;
-            SlowDownTime();
-            TrickActivation();
-            PlayerController _playerScript = other.gameObject.GetComponent<PlayerController>();
-            _playerScript._trickTriggerScript = GetComponent<TrickTriggers>();
             _player = other.gameObject;
             _playerAnimator = _player.GetComponent<Animator>();
-
+            PlayerController _playerScript = _player.GetComponent<PlayerController>();
+            if (_playerScript.SpeedIndicator == _speedRequired)
+            {
+                SlowDownTime();
+                TrickActivation();
+                _playerScript._trickTriggerScript = GetComponent<TrickTriggers>();
+                _playerAnimator = _player.GetComponent<Animator>();
+            }
+            else
+            {
+                FailTrick();
+                Debug.Log("This Works");
+            }
+            
         }
     }
 

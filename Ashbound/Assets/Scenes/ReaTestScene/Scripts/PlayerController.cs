@@ -31,8 +31,7 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnimations;
     private bool isJumping;
     private SpineLean spineScript;
-    [SerializeField]
-    private int SpeedIndicator;
+    public int SpeedIndicator;
     public TextMeshProUGUI speedIndicatorText;
 
     [Header("Trick Settings")]
