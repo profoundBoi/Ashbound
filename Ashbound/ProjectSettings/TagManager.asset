@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Generate
   - UpForce
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
