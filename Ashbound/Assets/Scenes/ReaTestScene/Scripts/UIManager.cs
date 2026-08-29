@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -10,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private string MainMenuScene;
     public GameObject RetryPanel;
+    public List<GameObject> _failedText;
+    public GameObject FaileTextToShow;
 
     public void ShowRetryPanel()
     {
@@ -28,9 +32,18 @@ public class UIManager : MonoBehaviour
 
     }
 
+    IEnumerator ShowFailingText()
+    {
+        FaileTextToShow.SetActive(true);
+        yield return new WaitForSeconds(2);
+        FaileTextToShow.SetActive(false);
+
+    }
+
     IEnumerator DelayRetryPanel()
     {
-        yield return new WaitForSeconds(1);
+        StartCoroutine(ShowFailingText());
+        yield return new WaitForSeconds(2);
         RetryPanel.SetActive(true);
         _eventSystem.SetSelectedGameObject(_retryButton);
     }
