@@ -25,6 +25,12 @@ public class PlayerController : MonoBehaviour
     private float increaseAmount;
     private int increaseLimit;
 
+    [Header("Tilt (left/right lean)")]
+    public float maxTiltAngle = 12f;
+    public float tiltSmoothSpeed = 8f;
+    private float currentTilt = 0f;
+    private float baseYaw;
+
     //PLayer Animations
     [Header("Animations")]
     [SerializeField]
@@ -52,6 +58,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         spineScript = GetComponent<SpineLean>();
         SpeedIndicator = 5;
+        baseYaw = transform.eulerAngles.y; // remember starting facing direction
     }
 
     // MOVEMENT
@@ -85,6 +92,11 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = (forward + sideways) * Time.fixedDeltaTime;
 
         rb.MovePosition(rb.position + movement);
+
+        // bank/tilt left-right based on strafe input, without changing facing direction
+        float targetTilt = -moveInput.x * maxTiltAngle;
+        currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.fixedDeltaTime * tiltSmoothSpeed);
+        rb.MoveRotation(Quaternion.Euler(0f, baseYaw, currentTilt));
 
         speedIndicatorText.text = SpeedIndicator.ToString();
     }
