@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Trick Settings")]
     public TrickTriggers _trickTriggerScript;
+    public float upForceAmount = 10f;
+
 
     void Awake()
     {
@@ -214,8 +216,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("UpForce"))
+        {
 
+        }
+    }
 
-  
 
 }
