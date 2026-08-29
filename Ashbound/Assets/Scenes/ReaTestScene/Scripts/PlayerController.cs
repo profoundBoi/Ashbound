@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     [Header("Trick Settings")]
     public TrickTriggers _trickTriggerScript;
     public float upForceAmount = 10f;
-
+    private UIManager _manager;
 
     void Awake()
     {
@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
         spineScript = GetComponent<SpineLean>();
         SpeedIndicator = 5;
         baseYaw = transform.eulerAngles.y; // remember starting facing direction
+        _manager = FindFirstObjectByType<UIManager>();
+
     }
 
     // MOVEMENT
@@ -158,6 +160,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
+                        _manager.FaileTextToShow = _manager._failedText[2];
                         _trickTriggerScript.FailTrick();
                     }
                 }
@@ -179,6 +182,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
+                        _manager.FaileTextToShow = _manager._failedText[2];
                         _trickTriggerScript.FailTrick();
                     }
                 }
@@ -200,6 +204,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
+                        _manager.FaileTextToShow = _manager._failedText[2];
                         _trickTriggerScript.FailTrick();
                     }
                 }
@@ -221,20 +226,11 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
+                        _manager.FaileTextToShow = _manager._failedText[2];
                         _trickTriggerScript.FailTrick();
                     }
                 }
             }
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("UpForce"))
-        {
-
-        }
-    }
-
-
 }

@@ -135,12 +135,21 @@ public class TrickTriggers : MonoBehaviour
                 _playerScript._trickTriggerScript = GetComponent<TrickTriggers>();
                 _playerAnimator = _player.GetComponent<Animator>();
             }
-            else
+            else if (_playerScript.SpeedIndicator > _speedRequired)
             {
+                if (_manager != null)
+                {
+                    _manager.FaileTextToShow = _manager._failedText[1];
+                }
                 FailTrick();
-                Debug.Log("This Works");
+                
             }
-            
+            else if (_playerScript.SpeedIndicator < _speedRequired)
+            {
+                _manager.FaileTextToShow = _manager._failedText[0];
+                FailTrick();
+            }
+
         }
     }
 
