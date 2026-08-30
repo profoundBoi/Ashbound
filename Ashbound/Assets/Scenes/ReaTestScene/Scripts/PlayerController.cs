@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public float tiltSmoothSpeed = 8f;
     private float currentTilt = 0f;
     private float baseYaw;
+  
 
     //PLayer Animations
     [Header("Animations")]
