@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stais
+  m_Name: Floor
   m_Shader: {fileID: 4800000, guid: be891319084e9d147b09d89e80ce60e0, type: 3}
   m_Parent: {fileID: 2100000, guid: 5b72f3315ae81ab44abf7464b3728cc1, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -42,17 +42,26 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _1st_ShadeMap:
+        m_Texture: {fileID: 2800000, guid: 41357fbc3855a3d46b625fdac4a9e08b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _2nd_ShadeMap:
+        m_Texture: {fileID: 2800000, guid: 41357fbc3855a3d46b625fdac4a9e08b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 41357fbc3855a3d46b625fdac4a9e08b, type: 3}
+        m_Scale: {x: 150, y: 150}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Farthest_Distance: 0
-    - _Is_BlendBaseColor: 1
-    - _Nearest_Distance: -44.5
-    - _Offset_Z: -3
-    - _Outline_Width: 28.66
+    - _Offset_Z: -1.09
+    - _Outline_Width: 0.54
     m_Colors:
-    - _1st_ShadeColor: {r: 0.16820933, g: 0.24402694, b: 0.2830189, a: 1}
-    - _BaseColor: {r: 0.4225916, g: 0.44382834, b: 0.5245282, a: 1}
-    - _Color: {r: 0.42259157, g: 0.4438283, b: 0.5245282, a: 1}
+    - _1st_ShadeColor: {r: 0.08930583, g: 0.122272044, b: 0.13962269, a: 1}
+    - _BaseColor: {r: 0.29534346, g: 0.3103899, b: 0.3735848, a: 1}
+    - _Color: {r: 0.29534343, g: 0.31038988, b: 0.37358475, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
