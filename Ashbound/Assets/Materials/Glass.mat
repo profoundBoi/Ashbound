@@ -390,10 +390,10 @@ Material:
     - _OcclusionStrength: 1
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
-    - _Offset_Z: -2.38
+    - _Offset_Z: 0
     - _OutlineOverridden: 0
     - _OutlineVisible: 1
-    - _Outline_Width: 0
+    - _Outline_Width: 4.39
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
@@ -488,8 +488,8 @@ Material:
     - _simpleUI: 0
     - _utsTechnique: 0
     m_Colors:
-    - _1st_ShadeColor: {r: 0.3453399, g: 0.6377357, b: 0.62728506, a: 1}
-    - _2nd_ShadeColor: {r: 0.22704872, g: 0.5396226, b: 0.5272536, a: 1}
+    - _1st_ShadeColor: {r: 0.23347092, g: 0.4566037, b: 0.44767842, a: 1}
+    - _2nd_ShadeColor: {r: 0, g: 0.16981131, b: 0.16010782, a: 1}
     - _AngelRingMaskColor: {r: 0, g: 1, b: 0, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
