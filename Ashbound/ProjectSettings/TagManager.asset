@@ -7,6 +7,7 @@ TagManager:
   - Generate
   - UpForce
   - Ground
+  - WallRun
   layers:
   - Default
   - TransparentFX
