@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ReaTestScene.unity
     guid: 972fcc7090618b1418004c2c7d01ef7f
   - enabled: 1
-    path: Assets/Scenes/ReaTestScene/New Mechanic Tester.unity
+    path: Assets/Scenes/ReaTestScene/Level 1.unity
     guid: 79e58e2faf2b0e441b0eee3ebfad4385
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
