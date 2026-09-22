@@ -28,6 +28,13 @@ public class TrickTriggers : MonoBehaviour
     [SerializeField]
     private int _speedRequired;
 
+    public Transform _rightHand;
+    public Transform _chainLoop;
+    [SerializeField]
+    private bool isSwingToLand;
+    [SerializeField]
+    private float _grabWaitTime, _grabDuration;
+
     private void Start()
     {
         _manager = FindFirstObjectByType<UIManager>();
@@ -177,10 +184,35 @@ public class TrickTriggers : MonoBehaviour
                 _playerAnimator.SetBool(Trick, true);
             }
         }
+
+        if (isSwingToLand)
+        {
+            StartCoroutine(GrabChain());    
+        }
         yield return new WaitForSeconds(trickWaitTime);
 
         _playerAnimator.SetBool(Trick, false);
     }
 
+    IEnumerator GrabChain()
+    {
+        Transform ChainParent = _chainLoop.parent;
+        Vector3 ChainPosition = _chainLoop.position;
+        Quaternion ChainRotation = _chainLoop.rotation;
+        Vector3 ChainScale = _chainLoop.localScale;
+
+        yield return new WaitForSeconds(_grabWaitTime);
+
+        _chainLoop.position = _rightHand.position;
+        _chainLoop.SetParent(_rightHand);
+
+        yield return new WaitForSeconds(_grabDuration);
+
+        _chainLoop.SetParent(ChainParent);
+        _chainLoop.rotation = ChainRotation;
+        _chainLoop.localScale = ChainScale;
+        Rigidbody rb = _chainLoop.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+    }
 
 }
