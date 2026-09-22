@@ -5696,6 +5696,135 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1344257726}
   m_SourcePrefab: {fileID: 100100000, guid: 80ca93fbe181a2c45a786bebdd2a53dd, type: 3}
+--- !u!1 &434766977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 434766978}
+  - component: {fileID: 434766982}
+  - component: {fileID: 434766981}
+  - component: {fileID: 434766980}
+  - component: {fileID: 434766979}
+  m_Layer: 0
+  m_Name: Swing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &434766978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434766977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.24, y: 2.4, z: 293.39}
+  m_LocalScale: {x: 5.1209354, y: 2.8031, z: 63.17204}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 668798823}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434766979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434766977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4603a2265aff39044aadf22d13ed15d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraZoneTrigger
+  cameraToActivate: {fileID: 1504548558}
+  defaultCamera: {fileID: 1192506716}
+  activePriority: 20
+  defaultPriority: 10
+--- !u!65 &434766980
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434766977}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.1677623, y: 4.4085555, z: 0.32139477}
+  m_Center: {x: -0.010907613, y: 0.93212295, z: 0.048959777}
+--- !u!23 &434766981
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434766977}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &434766982
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434766977}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &445753507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6644,7 +6773,7 @@ Transform:
   m_GameObject: {fileID: 535973512}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.69, y: 2.4, z: 2.3}
+  m_LocalPosition: {x: 6.29, y: 2.4, z: 35.67}
   m_LocalScale: {x: 12.422218, y: 2.8031, z: 63.17204}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8204,6 +8333,7 @@ Transform:
   - {fileID: 535973513}
   - {fileID: 1881661203}
   - {fileID: 2089616223}
+  - {fileID: 434766978}
   - {fileID: 1786177351}
   - {fileID: 1003675101}
   m_Father: {fileID: 0}
@@ -10092,7 +10222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: be5e903ec4ed7b145a8abdba971fcc9f, type: 3}
+  m_Texture: {fileID: 2800000, guid: 143d7b79d7580a64fac036d145a18a10, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -12970,7 +13100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: fe50fc7c7893089458ebf9e83ad171e3, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4618f04e8639a764d91c7438b9425012, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -15401,8 +15531,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504548554}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.04203515, y: -0.4485253, z: 0.021123998, w: 0.8925312}
-  m_LocalPosition: {x: 0.6341007, y: -3.42, z: 4.2300034}
+  m_LocalRotation: {x: 0.25497738, y: -0.50277907, z: 0.15813665, w: 0.81067413}
+  m_LocalPosition: {x: 3.3741004, y: 0.28999996, z: 3.459999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15455,7 +15585,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 2.38, y: 0.28, z: -1.77}
+  FollowOffset: {x: 5.12, y: 3.99, z: -2.54}
 --- !u!114 &1504548558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19716,7 +19846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 6e5cf236d1d8d2848bbadeb7eb5c676d, type: 3}
+  m_Texture: {fileID: 2800000, guid: a12e1791cae8dc4429e2276dbc0893c1, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -20520,7 +20650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce37bb6362aeb9e47a99f15df3072dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpForceManager
-  upForceAmount: 14
+  upForceAmount: 13
   _startTime: 0
   _waitTime: 0
   _swingSpeed: 0
@@ -22318,7 +22448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 7db4c887e856aad4e90d11fb5a69705e, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2a0c9c9e8f6d9ec41b5a174cf712a2a3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
