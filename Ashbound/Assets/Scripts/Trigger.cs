@@ -60,7 +60,7 @@ public class Trigger : MonoBehaviour
         if (GameManager.Instance != null)
         {
             Destroy(GameManager.Instance.gameObject);
-            GameManager.Instance = null;
+
         }
 
         Scene current = SceneManager.GetActiveScene();

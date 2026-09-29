@@ -1,34 +1,67 @@
+using System;
 using UnityEngine;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
 
-    [Header("UI")]
-    public TextMeshProUGUI coinText;
+    private const string CoinKey = "TotalCoins";
 
-    private int coinCount = 0;
+    public int CoinCount { get; private set; }
+
+    public event Action<int> OnCoinsChanged;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void Bootstrap()
+    {
+        if (Instance == null)
+        {
+            var go = new GameObject("GameManager");
+            go.AddComponent<GameManager>();
+        }
+    }
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
+        if (Instance != null && Instance != this)
+        {
             Destroy(gameObject);
+            return;
+        }
 
-        UpdateUI();
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        CoinCount = PlayerPrefs.GetInt(CoinKey, 0);
     }
 
     public void AddCoins(int amount)
     {
-        coinCount += amount;
-        UpdateUI();
+        CoinCount += amount;
+        Save();
+        OnCoinsChanged?.Invoke(CoinCount);
     }
 
-    private void UpdateUI()
+    public bool SpendCoins(int amount)
     {
-        if (coinText != null)
-            coinText.text = "Caps: " + coinCount;
+        if (CoinCount < amount) return false;
+
+        CoinCount -= amount;
+        Save();
+        OnCoinsChanged?.Invoke(CoinCount);
+        return true;
+    }
+
+    public void ResetCoins()
+    {
+        CoinCount = 0;
+        Save();
+        OnCoinsChanged?.Invoke(CoinCount);
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetInt(CoinKey, CoinCount);
+        PlayerPrefs.Save();
     }
 }
