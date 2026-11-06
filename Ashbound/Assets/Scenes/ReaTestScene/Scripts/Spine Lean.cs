@@ -8,7 +8,7 @@ public class SpineLean : MonoBehaviour
 
     [Header("Lean settings")]
     public float leanAngle = 5f;          // degrees added each time OnLean is called
-    public float maxLeanAngle = 50f;      // cap so it can't lean infinitely
+    public float maxLeanAngle = 60f;      // cap so it can't lean infinitely
     public float leanSmoothSpeed = 5f;    // how fast the lean transitions
     [SerializeField]
     private Animation RunClip;
@@ -16,6 +16,7 @@ public class SpineLean : MonoBehaviour
     [Header("Bone")]
     public HumanBodyBones leanBone = HumanBodyBones.Spine;
 
+    [SerializeField]
     float currentLean = 0f;
     float targetLean = 0f;
 
