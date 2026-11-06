@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Scene Names")]
+    [Tooltip("Exact name of the tutorial scene as it appears in Build Settings.")]
+    [SerializeField] private string tutorialSceneName = "Tutorial";
+
     [Tooltip("Exact name of the campaign scene as it appears in Build Settings.")]
     [SerializeField] private string campaignSceneName = "Campaign";
 
@@ -69,6 +72,12 @@ public class MainMenuManager : MonoBehaviour
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+    }
+
+    public void OnPlayTutorialClicked()
+    {
+        PlayClickSfx();
+        LoadScene(tutorialSceneName);
     }
 
     public void OnPlayCampaignClicked()
