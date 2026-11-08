@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     [Header("Animations")]
     [SerializeField]
     private Animator playerAnimations;
+    [SerializeField]
+    private List<string> SlideAnimations;
     private bool isJumping;
     private SpineLean spineScript;
     public int SpeedIndicator;
@@ -45,6 +47,13 @@ public class PlayerController : MonoBehaviour
     public TrickTriggers _trickTriggerScript;
     public float upForceAmount = 10f;
     private UIManager _manager;
+
+    [Header("Lane Switching")]
+    public float laneDistance = 2f;        // distance between lanes
+    public float laneSwitchSpeed = 25f;    // higher = quicker snap between lanes
+    private int currentLane = 0;           // -1 = left, 0 = middle, 1 = right
+    private float currentLaneOffset = 0f;  // how far we are from the middle lane right now
+    private bool laneInputReady = true;    // makes one press = one lane switch
 
     void Awake()
     {
@@ -70,8 +79,28 @@ public class PlayerController : MonoBehaviour
         Vector2 input = context.ReadValue<Vector2>();
 
         moveInput = new Vector3(input.x, 0, 0);
-    }
 
+        if (Mathf.Abs(input.x) < 0.5f)
+        {
+            laneInputReady = true;
+        }
+        else if (laneInputReady)
+        {
+            int newLane = Mathf.Clamp(currentLane + (input.x > 0 ? 1 : -1), -1, 1);
+
+            if (newLane != currentLane)
+            {
+                if (newLane < currentLane)
+                    StartCoroutine(PlaySlideLeft());
+                else
+                    StartCoroutine(PlaySlideRight());
+
+                currentLane = newLane;
+            }
+
+            laneInputReady = false;
+        }
+    }
     // JUMP
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -90,9 +119,13 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 forward = transform.forward * speed;
-        Vector3 sideways = transform.right * moveInput.x * speed;
 
-        Vector3 movement = (forward + sideways) * Time.fixedDeltaTime;
+        float targetOffset = currentLane * laneDistance;
+        float newOffset = Mathf.MoveTowards(currentLaneOffset, targetOffset, laneSwitchSpeed * Time.fixedDeltaTime);
+        Vector3 sideways = transform.right * (newOffset - currentLaneOffset);
+        currentLaneOffset = newOffset;
+
+        Vector3 movement = forward * Time.fixedDeltaTime + sideways;
 
         rb.MovePosition(rb.position + movement);
 
@@ -102,6 +135,22 @@ public class PlayerController : MonoBehaviour
         rb.MoveRotation(Quaternion.Euler(0f, baseYaw, currentTilt));
 
         speedIndicatorText.text = SpeedIndicator.ToString();
+    }
+
+    IEnumerator PlaySlideLeft()
+    {
+        playerAnimations.SetBool(SlideAnimations[0], true);
+        yield return new WaitForSeconds(0.1f);
+        playerAnimations.SetBool(SlideAnimations[0], false);
+
+    }
+
+    IEnumerator PlaySlideRight()
+    {
+        playerAnimations.SetBool(SlideAnimations[1], true);
+        yield return new WaitForSeconds(0.1f);
+        playerAnimations.SetBool(SlideAnimations[1], false);
+        
     }
     bool IsGrounded()
     {

@@ -15202,10 +15202,13 @@ MonoBehaviour:
   maxTiltAngle: 12
   tiltSmoothSpeed: 5
   playerAnimations: {fileID: 0}
+  SlideAnimations: []
   SpeedIndicator: 0
   speedIndicatorText: {fileID: 126071559}
   _trickTriggerScript: {fileID: 0}
   upForceAmount: 10
+  laneDistance: 2
+  laneSwitchSpeed: 25
 --- !u!114 &1255821105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22085,11 +22088,16 @@ MonoBehaviour:
   increaseAmount: 2
   maxTiltAngle: 12
   tiltSmoothSpeed: 5
-  playerAnimations: {fileID: 0}
+  playerAnimations: {fileID: 1806237341}
+  SlideAnimations:
+  - SlideL
+  - SlideR
   SpeedIndicator: 0
   speedIndicatorText: {fileID: 126071559}
   _trickTriggerScript: {fileID: 0}
   upForceAmount: 10
+  laneDistance: 6.9
+  laneSwitchSpeed: 35
 --- !u!114 &1806237339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22135,6 +22143,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &1806237341 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 640140b7eb81ff2478e82be3a3727deb, type: 3}
+  m_PrefabInstance: {fileID: 1530752651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1806237342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 640140b7eb81ff2478e82be3a3727deb, type: 3}
