@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour
     private float currentLaneOffset = 0f;  // how far we are from the middle lane right now
     private bool laneInputReady = true;    // makes one press = one lane switch
 
+    [Header("Audio")]
+    public AudioSource SideSlide;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -139,6 +142,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator PlaySlideLeft()
     {
+        SideSlide.Play();
         playerAnimations.SetBool(SlideAnimations[0], true);
         yield return new WaitForSeconds(0.1f);
         playerAnimations.SetBool(SlideAnimations[0], false);
@@ -147,6 +151,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator PlaySlideRight()
     {
+        SideSlide.Play();
         playerAnimations.SetBool(SlideAnimations[1], true);
         yield return new WaitForSeconds(0.1f);
         playerAnimations.SetBool(SlideAnimations[1], false);

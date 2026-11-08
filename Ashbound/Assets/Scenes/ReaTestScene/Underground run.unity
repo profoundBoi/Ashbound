@@ -2000,15 +2000,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8769793400169212237, guid: c0656a0ad5588794dbfb00a0ff2f4561, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.00000000630974
       objectReference: {fileID: 0}
     - target: {fileID: 8769793400169212237, guid: c0656a0ad5588794dbfb00a0ff2f4561, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.0000000061125607
       objectReference: {fileID: 0}
     - target: {fileID: 8769793400169212237, guid: c0656a0ad5588794dbfb00a0ff2f4561, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 3.856867e-17
       objectReference: {fileID: 0}
     - target: {fileID: 8797258022611526473, guid: c0656a0ad5588794dbfb00a0ff2f4561, type: 3}
       propertyPath: Priority.m_Value
@@ -22097,7 +22097,7 @@ MonoBehaviour:
   _trickTriggerScript: {fileID: 0}
   upForceAmount: 10
   laneDistance: 6.9
-  laneSwitchSpeed: 35
+  laneSwitchSpeed: 37
 --- !u!114 &1806237339
 MonoBehaviour:
   m_ObjectHideFlags: 0
