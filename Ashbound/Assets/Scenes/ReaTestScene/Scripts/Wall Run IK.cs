@@ -26,6 +26,7 @@ public class WallRunHandIK : MonoBehaviour
     float currentHandWeight = 0f;
     float currentLean = 0f;
 
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -78,4 +79,5 @@ public class WallRunHandIK : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawRay(origin, -transform.right * reachDistance);
     }
+
 }

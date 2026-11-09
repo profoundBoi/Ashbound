@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     public float tiltSmoothSpeed = 8f;
     private float currentTilt = 0f;
     private float baseYaw;
-  
 
     //PLayer Animations
     [Header("Animations")]
@@ -49,11 +48,17 @@ public class PlayerController : MonoBehaviour
     private UIManager _manager;
 
     [Header("Lane Switching")]
-    public float laneDistance = 2f;        // distance between lanes
-    public float laneSwitchSpeed = 25f;    // higher = quicker snap between lanes
-    private int currentLane = 0;           // -1 = left, 0 = middle, 1 = right
-    private float currentLaneOffset = 0f;  // how far we are from the middle lane right now
-    private bool laneInputReady = true;    // makes one press = one lane switch
+    public float laneDistance = 2f;
+    public float laneSwitchSpeed = 25f;
+    private int currentLane = 0;
+    private float currentLaneOffset = 0f;
+    private bool laneInputReady = true;
+
+    [Header("Shift")]
+    public float shiftAmount = 1f;
+    public float shiftSpeed = 10f;
+    private float extraOffset = 0f;
+    private float currentShiftOffset = 0f;
 
     [Header("Audio")]
     public AudioSource SideSlide;
@@ -71,9 +76,8 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         spineScript = GetComponent<SpineLean>();
         SpeedIndicator = 5;
-        baseYaw = transform.eulerAngles.y; // remember starting facing direction
+        baseYaw = transform.eulerAngles.y;
         _manager = FindFirstObjectByType<UIManager>();
-
     }
 
     // MOVEMENT
@@ -104,6 +108,7 @@ public class PlayerController : MonoBehaviour
             laneInputReady = false;
         }
     }
+
     // JUMP
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -119,14 +124,43 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("GameSelect");
     }
 
+    // SHIFT (called by trigger zones)
+    public void ShiftLeft()
+    {
+        extraOffset -= shiftAmount;
+    }
+
+    public void ShiftRight()
+    {
+        extraOffset += shiftAmount;
+    }
+
     void FixedUpdate()
     {
         Vector3 forward = transform.forward * speed;
 
-        float targetOffset = currentLane * laneDistance;
-        float newOffset = Mathf.MoveTowards(currentLaneOffset, targetOffset, laneSwitchSpeed * Time.fixedDeltaTime);
-        Vector3 sideways = transform.right * (newOffset - currentLaneOffset);
-        currentLaneOffset = newOffset;
+        float targetLaneOffset = currentLane * laneDistance;
+        float targetShiftOffset = extraOffset;
+
+        float newLaneOffset = Mathf.MoveTowards(
+            currentLaneOffset,
+            targetLaneOffset,
+            laneSwitchSpeed * Time.fixedDeltaTime
+        );
+
+        float newShiftOffset = Mathf.MoveTowards(
+            currentShiftOffset,
+            targetShiftOffset,
+            shiftSpeed * Time.fixedDeltaTime
+        );
+
+        Vector3 sideways = transform.right * (
+            (newLaneOffset - currentLaneOffset) +
+            (newShiftOffset - currentShiftOffset)
+        );
+
+        currentLaneOffset = newLaneOffset;
+        currentShiftOffset = newShiftOffset;
 
         Vector3 movement = forward * Time.fixedDeltaTime + sideways;
 
@@ -146,7 +180,6 @@ public class PlayerController : MonoBehaviour
         playerAnimations.SetBool(SlideAnimations[0], true);
         yield return new WaitForSeconds(0.1f);
         playerAnimations.SetBool(SlideAnimations[0], false);
-
     }
 
     IEnumerator PlaySlideRight()
@@ -155,8 +188,8 @@ public class PlayerController : MonoBehaviour
         playerAnimations.SetBool(SlideAnimations[1], true);
         yield return new WaitForSeconds(0.1f);
         playerAnimations.SetBool(SlideAnimations[1], false);
-        
     }
+
     bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, 1.1f);
@@ -170,8 +203,24 @@ public class PlayerController : MonoBehaviour
     void DecreaseSpeedIndicator()
     {
         SpeedIndicator -= 5;
-
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Shift"))
+        {
+           ShiftLeft();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Shift"))
+        {
+            ShiftRight();
+        }
+    }
+
 
     public void OnIncreaseSpeed(InputAction.CallbackContext context)
     {
