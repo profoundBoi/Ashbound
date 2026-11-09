@@ -1044,6 +1044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2195842925860943096, guid: c0656a0ad5588794dbfb00a0ff2f4561, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3303273403824066817, guid: c0656a0ad5588794dbfb00a0ff2f4561, type: 3}
       propertyPath: Priority.m_Value
       value: 0
@@ -8879,6 +8883,8 @@ MonoBehaviour:
   upForceAmount: 10
   laneDistance: 6.9
   laneSwitchSpeed: 40
+  shiftAmount: 1
+  shiftSpeed: 10
   SideSlide: {fileID: 707961155}
 --- !u!114 &980682985
 MonoBehaviour:
@@ -11773,6 +11779,8 @@ MonoBehaviour:
   upForceAmount: 10
   laneDistance: 2
   laneSwitchSpeed: 25
+  shiftAmount: 1
+  shiftSpeed: 10
   SideSlide: {fileID: 0}
 --- !u!114 &1255821105
 MonoBehaviour:
