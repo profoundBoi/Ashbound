@@ -4702,6 +4702,8 @@ Transform:
   m_Children:
   - {fileID: 488816304}
   - {fileID: 955623518}
+  - {fileID: 1059113527}
+  - {fileID: 2134207118}
   - {fileID: 347281737}
   - {fileID: 841316893}
   - {fileID: 1463042482}
@@ -9949,7 +9951,7 @@ MonoBehaviour:
   speedIndicatorText: {fileID: 126071559}
   _trickTriggerScript: {fileID: 0}
   upForceAmount: 10
-  laneDistance: 6.9
+  laneDistance: 5.8
   laneSwitchSpeed: 40
   shiftAmount: 1
   shiftSpeed: 10
@@ -10126,10 +10128,6 @@ MonoBehaviour:
     m_ActionId: f5497de0-1397-4190-a3ef-c4c5f2ba4339
     m_ActionName: Player/North
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5998d90c-f61b-4ca5-b758-4da4631aa196
-    m_ActionName: Player/Look
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 980682984}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
@@ -10161,6 +10159,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bb33276f-2894-4b52-a3b0-ec40e21c5704
     m_ActionName: Player/SlowDown
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 980682992}
+        m_TargetAssemblyTypeName: ActionAnimationManager, Assembly-CSharp
+        m_MethodName: OnKick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1bbedf22-d015-4bfa-874b-40aaf3d456b6
+    m_ActionName: 'Player/Kick[/DualShock4GamepadHID/rightShoulder]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10191,6 +10205,8 @@ MonoBehaviour:
   playerAnimator: {fileID: 0}
   GlideTime: 2.2
   GlideAnimation: Glide
+  KickTime: 0.8
+  KickAnimation: Kick
 --- !u!1 &997963034
 GameObject:
   m_ObjectHideFlags: 0
@@ -11243,6 +11259,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058483855}
   m_Mesh: {fileID: 2197118030179951057, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!1001 &1059113526
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 476427341}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.64754
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.75605
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -115.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0051486995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99998677
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b367d30f17979f478e2c9991243a5fd, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 41382735bdc40a148b7800e4d45cd72a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d036e76d466884a45b85247683ec4e7e, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d036e76d466884a45b85247683ec4e7e, type: 2}
+    - target: {fileID: 919132149155446097, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_Name
+      value: Speed Limit Signs (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+--- !u!4 &1059113527 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+  m_PrefabInstance: {fileID: 1059113526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1072960874
 GameObject:
   m_ObjectHideFlags: 0
@@ -23030,6 +23124,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104231950}
   m_Mesh: {fileID: -604256794933069789, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!1001 &2134207117
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 476427341}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.64754
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.75605
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -199.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0051486995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99998677
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b367d30f17979f478e2c9991243a5fd, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 41382735bdc40a148b7800e4d45cd72a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d036e76d466884a45b85247683ec4e7e, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d036e76d466884a45b85247683ec4e7e, type: 2}
+    - target: {fileID: 919132149155446097, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+      propertyPath: m_Name
+      value: Speed Limit Signs (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+--- !u!4 &2134207118 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b3026f124b94574a90b6707a8c7abea, type: 3}
+  m_PrefabInstance: {fileID: 2134207117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2136970033
 GameObject:
   m_ObjectHideFlags: 0

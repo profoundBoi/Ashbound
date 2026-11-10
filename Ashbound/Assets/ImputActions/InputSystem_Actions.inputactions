@@ -52,15 +52,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Look",
-                    "type": "PassThrough",
-                    "id": "5998d90c-f61b-4ca5-b758-4da4631aa196",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Speed Increase",
                     "type": "Button",
                     "id": "29055335-ea45-4b5a-90f1-39166abbcaed",
@@ -73,6 +64,15 @@
                     "name": "SlowDown",
                     "type": "Button",
                     "id": "bb33276f-2894-4b52-a3b0-ec40e21c5704",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Kick",
+                    "type": "Button",
+                    "id": "1bbedf22-d015-4bfa-874b-40aaf3d456b6",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -192,17 +192,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1f3b5694-8664-4322-9444-e48a9e436a13",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "046d280e-208f-4d1a-8236-9d0a8137e31a",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -220,6 +209,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SlowDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4bbc4d2-93a2-4dc5-987b-5e962bdb62c1",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
