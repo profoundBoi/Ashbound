@@ -15,7 +15,7 @@ public class ActionAnimationManager : MonoBehaviour
 
     [Header("Kick Settings")]
     [SerializeField]
-    private float KickTime;
+    public float KickTime;
     public string KickAnimation;
 
 

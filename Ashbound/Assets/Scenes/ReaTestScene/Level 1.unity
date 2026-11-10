@@ -10262,7 +10262,7 @@ MonoBehaviour:
   - {fileID: 2136970033}
   - {fileID: 862529703}
   canRecordButtons: 0
-  BoolPosition: 000000000200000003000000
+  BoolPosition: 000000000300000002000000
   trickWaitTime: 1.5
   _player: {fileID: 0}
   _manager: {fileID: 0}
@@ -12269,7 +12269,7 @@ MonoBehaviour:
   - {fileID: 2136970033}
   - {fileID: 862529703}
   canRecordButtons: 0
-  BoolPosition: 000000000200000003000000
+  BoolPosition: 010000000000000002000000
   trickWaitTime: 1.2
   _player: {fileID: 0}
   _manager: {fileID: 0}

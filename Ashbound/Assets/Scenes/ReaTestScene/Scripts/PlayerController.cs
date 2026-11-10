@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
     [Header("Audio")]
     public AudioSource SideSlide;
 
+    private ActionAnimationManager _animationManager;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour
         SpeedIndicator = 5;
         baseYaw = transform.eulerAngles.y;
         _manager = FindFirstObjectByType<UIManager>();
+        _animationManager = GetComponent<ActionAnimationManager>();
     }
 
     // MOVEMENT
@@ -232,6 +235,7 @@ public class PlayerController : MonoBehaviour
                 spineScript.OnLean();
                 increaseLimit++;
                 IncreaseSpeedIndicator();
+                _animationManager.KickTime -= 0.2f;
             }
         }
     }
@@ -246,6 +250,8 @@ public class PlayerController : MonoBehaviour
                 spineScript.ResetLean();
                 increaseLimit--;
                 DecreaseSpeedIndicator();
+                _animationManager.KickTime += 0.2f;
+
             }
         }
     }
