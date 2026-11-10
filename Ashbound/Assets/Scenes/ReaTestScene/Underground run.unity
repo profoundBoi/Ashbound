@@ -7051,9 +7051,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
-      minScalar: 5
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7105,7 +7105,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 60
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -7223,7 +7223,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7687,7 +7687,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 7.23
       mode: 0
       spread: 0
       speed:
@@ -7745,7 +7745,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
+      mode: 2
       spread: 0
       speed:
         serializedVersion: 2
@@ -7912,7 +7912,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -7923,22 +7923,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
-          tangentMode: 0
+          value: 0.18571472
+          inSlope: 0.8142853
+          outSlope: 0.8142853
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
-          outSlope: 0
-          tangentMode: 0
+          inSlope: 0.8142853
+          outSlope: 0.8142853
+          tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -8236,7 +8236,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -8244,7 +8244,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -8269,7 +8269,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -26918,10 +26918,6 @@ MonoBehaviour:
     m_ActionId: f5497de0-1397-4190-a3ef-c4c5f2ba4339
     m_ActionName: Player/North
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5998d90c-f61b-4ca5-b758-4da4631aa196
-    m_ActionName: Player/Look
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1806237338}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
@@ -26953,6 +26949,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bb33276f-2894-4b52-a3b0-ec40e21c5704
     m_ActionName: Player/SlowDown
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1bbedf22-d015-4bfa-874b-40aaf3d456b6
+    m_ActionName: 'Player/Kick[/DualShock4GamepadHID/leftShoulder]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
