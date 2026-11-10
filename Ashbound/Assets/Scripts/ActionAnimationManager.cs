@@ -28,6 +28,8 @@ public class ActionAnimationManager : MonoBehaviour
 
     IEnumerator GlideToRun()
     {
+        yield return new WaitForSeconds(3.5f);
+        playerAnimator.SetBool(GlideAnimation, true);
         yield return new WaitForSeconds(GlideTime);
         playerAnimator.SetBool(GlideAnimation, false);
     }
