@@ -10,6 +10,7 @@ TagManager:
   - WallRun
   - Shift
   - Kick
+  - ShiftRight
   layers:
   - Default
   - TransparentFX
