@@ -1998,6 +1998,7 @@ GameObject:
   - component: {fileID: 200208757}
   - component: {fileID: 200208759}
   - component: {fileID: 200208758}
+  - component: {fileID: 200208760}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -2061,6 +2062,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200208756}
   m_CullTransparentMesh: 1
+--- !u!95 &200208760
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200208756}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22759ef1e9de79c4495ee662ace2fe41, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &218582929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7077638569598609792, guid: 28c034ee67db6e9498104d9d9934361d, type: 3}
@@ -8459,7 +8482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -321, y: 289}
+  m_AnchoredPosition: {x: -1572, y: 289}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &830798621
@@ -10522,6 +10545,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1bbedf22-d015-4bfa-874b-40aaf3d456b6
     m_ActionName: 'Player/Kick[/DualShock4GamepadHID/rightShoulder]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59796260-c073-436f-b1d1-2f0230310edf
+    m_ActionName: 'Player/Look[/DualSenseGamepadHID/rightStick]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10554,6 +10581,7 @@ MonoBehaviour:
   GlideAnimation: Glide
   KickTime: 0.8
   KickAnimation: Kick
+  _pipeAnimator: {fileID: 0}
 --- !u!1 &997963034
 GameObject:
   m_ObjectHideFlags: 0
@@ -11041,7 +11069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 598, y: 0}
+  m_AnchoredPosition: {x: 598, y: 1195}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031612482
