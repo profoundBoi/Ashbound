@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - WallRun
   - Shift
+  - Kick
   layers:
   - Default
   - TransparentFX

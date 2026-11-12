@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +20,9 @@ public class ActionAnimationManager : MonoBehaviour
     public float KickTime;
     public string KickAnimation;
 
+    [Header("Pipe Settings")]
+    [SerializeField]
+    private Animator _pipeAnimator;
 
 
     private void Start()
@@ -36,9 +41,13 @@ public class ActionAnimationManager : MonoBehaviour
 
     public void OnKick(InputAction.CallbackContext context)
     {
-        if (context.canceled)
+        if (context.performed)
         {
             StartCoroutine(Kick());
+        }
+        if (context.canceled)
+        {
+            return;
         }
     }
 
@@ -48,4 +57,21 @@ public class ActionAnimationManager : MonoBehaviour
         yield return new WaitForSeconds(KickTime);
         playerAnimator.SetBool(KickAnimation, false);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Kick"))
+        {
+            print("KIck");
+            BurstPipes();
+            StartCoroutine(Kick());
+        }
+    }
+
+    void BurstPipes()
+    {
+        _pipeAnimator.SetBool("Burst", true);
+    }
+
+ 
 }
