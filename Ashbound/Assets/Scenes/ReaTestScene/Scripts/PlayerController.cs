@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     private float extraOffset = 0f;
     private float currentShiftOffset = 0f;
 
+
     [Header("Audio")]
     public AudioSource SideSlide;
 
@@ -214,6 +215,10 @@ public class PlayerController : MonoBehaviour
         {
            ShiftLeft();
         }
+        else if (other.CompareTag("ShiftRight"))
+        {
+            ShiftRight();
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -221,6 +226,10 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Shift"))
         {
             ShiftRight();
+        }
+        else if (other.CompareTag("ShiftRight"))
+        {
+            ShiftLeft();
         }
     }
 
