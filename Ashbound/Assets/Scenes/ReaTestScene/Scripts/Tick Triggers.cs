@@ -35,6 +35,10 @@ public class TrickTriggers : MonoBehaviour
     [SerializeField]
     private float _grabWaitTime, _grabDuration;
 
+    [Header("Audio")]
+    [SerializeField]
+    private AudioSource _CorrectButton, _WrongButton, _CompleteButton;
+
     private void Start()
     {
         _manager = FindFirstObjectByType<UIManager>();
@@ -64,6 +68,7 @@ public class TrickTriggers : MonoBehaviour
     public void FailTrick()
     {
         ResumeTime();
+        _WrongButton.Play();
         for (int i = 0; i < Trickbools.Count; i++)
         {
             Trickbools[i] = false;
@@ -89,17 +94,23 @@ public class TrickTriggers : MonoBehaviour
     {
         if (_buttonIndex < BoolPosition.Count - 1)
         {
+            ButtonCloneManager buttonClone = _ButtonUi[BoolPosition[_buttonIndex]].GetComponent<ButtonCloneManager>();
+            buttonClone.CloneButton();
             _buttonIndex++;
             TrickActivation();
+            _CorrectButton.Play();
         }
         else if (_buttonIndex == BoolPosition.Count - 1)
         {
             TrickComplete();
+            _CompleteButton.Play();
+
         }
     }
 
     void TrickActivation()
     {
+        
 
         for (int i = 0; i < Trickbools.Count; i++)
         {
@@ -110,9 +121,11 @@ public class TrickTriggers : MonoBehaviour
 
         for (int e = 0; e < _ButtonUi.Count; e++)
         {
+            
             _ButtonUi[e].SetActive(false);
 
         }
+        
         _ButtonUi[BoolPosition[_buttonIndex]].SetActive(true);
 
     }
