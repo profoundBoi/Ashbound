@@ -11,6 +11,8 @@ TagManager:
   - Shift
   - Kick
   - ShiftRight
+  - Floor
+  - Tire
   layers:
   - Default
   - TransparentFX
