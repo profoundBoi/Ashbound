@@ -5,21 +5,36 @@ public class CoinCollect : MonoBehaviour
     [Header("Settings")]
     public int coinValue = 1;
     public AudioClip collectSound;
-    public GameObject collectEffect; 
+    public GameObject collectEffect;
 
-    private void OnTriggerEnter(Collider other)
+    private bool collected;
+
+    private void OnTriggerEnter(Collider other) => TryCollect(other);
+
+    private void OnTriggerStay(Collider other) => TryCollect(other);
+
+    private void TryCollect(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            GameManager.Instance.AddCoins(coinValue);
+        if (collected || !other.CompareTag("Player")) return;
 
-            if (collectSound != null)
-                AudioSource.PlayClipAtPoint(collectSound, transform.position);
+        ActionAnimationManager actions = other.GetComponentInParent<ActionAnimationManager>();
+        if (actions == null || !actions.IsKicking) return;
 
-            if (collectEffect != null)
-                Instantiate(collectEffect, transform.position, Quaternion.identity);
+        Collect();
+    }
 
-            Destroy(gameObject);
-        }
+    private void Collect()
+    {
+        collected = true;
+
+        GameManager.Instance.AddCoins(coinValue);
+
+        if (collectSound != null)
+            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+
+        if (collectEffect != null)
+            Instantiate(collectEffect, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }
