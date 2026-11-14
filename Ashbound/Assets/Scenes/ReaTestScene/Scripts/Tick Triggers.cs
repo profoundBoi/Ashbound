@@ -37,7 +37,9 @@ public class TrickTriggers : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField]
-    private AudioSource _CorrectButton, _WrongButton, _CompleteButton;
+    private AudioSource _CorrectButton, _WrongButton, _CompleteButton, _TrickPerformAudio;
+    [SerializeField]
+    private float _SoundWaitTime;
 
     private void Start()
     {
@@ -195,6 +197,7 @@ public class TrickTriggers : MonoBehaviour
             if (_playerAnimator != null)
             {
                 _playerAnimator.SetBool(Trick, true);
+                StartCoroutine(PlaySound());
             }
         }
 
@@ -205,6 +208,12 @@ public class TrickTriggers : MonoBehaviour
         yield return new WaitForSeconds(trickWaitTime);
 
         _playerAnimator.SetBool(Trick, false);
+    }
+
+    IEnumerator PlaySound()
+    {
+        yield return new WaitForSeconds(_SoundWaitTime);
+        _TrickPerformAudio.Play();
     }
 
     IEnumerator GrabChain()

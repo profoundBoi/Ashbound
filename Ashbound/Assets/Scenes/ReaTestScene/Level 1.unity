@@ -457,6 +457,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 374279866}
   _WrongButton: {fileID: 1905497727}
   _CompleteButton: {fileID: 943284360}
+  _TrickPerformAudio: {fileID: 707961155}
+  _SoundWaitTime: 0.5
 --- !u!65 &52282840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -934,6 +936,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 374279866}
   _WrongButton: {fileID: 1905497727}
   _CompleteButton: {fileID: 943284360}
+  _TrickPerformAudio: {fileID: 707961155}
+  _SoundWaitTime: 0.5
 --- !u!65 &105387904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3583,6 +3587,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 374279866}
   _WrongButton: {fileID: 1905497727}
   _CompleteButton: {fileID: 943284360}
+  _TrickPerformAudio: {fileID: 707961155}
+  _SoundWaitTime: 0
 --- !u!65 &370925034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11222,6 +11228,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 374279866}
   _WrongButton: {fileID: 1905497727}
   _CompleteButton: {fileID: 943284360}
+  _TrickPerformAudio: {fileID: 707961155}
+  _SoundWaitTime: 0.5
 --- !u!65 &997963037
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13315,6 +13323,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 374279866}
   _WrongButton: {fileID: 1905497727}
   _CompleteButton: {fileID: 943284360}
+  _TrickPerformAudio: {fileID: 707961155}
+  _SoundWaitTime: 0.5
 --- !u!65 &1115334661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24607,6 +24617,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 374279866}
   _WrongButton: {fileID: 1905497727}
   _CompleteButton: {fileID: 943284360}
+  _TrickPerformAudio: {fileID: 707961155}
+  _SoundWaitTime: 0.5
 --- !u!65 &1654277960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26100,6 +26112,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 374279866}
   _WrongButton: {fileID: 1905497727}
   _CompleteButton: {fileID: 943284360}
+  _TrickPerformAudio: {fileID: 707961155}
+  _SoundWaitTime: 0.5
 --- !u!65 &1777419869
 BoxCollider:
   m_ObjectHideFlags: 0
