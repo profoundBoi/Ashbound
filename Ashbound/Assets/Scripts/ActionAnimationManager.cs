@@ -58,14 +58,20 @@ public class ActionAnimationManager : MonoBehaviour
 
     IEnumerator Kick()
     {
-        IsKicking = true;
+        StartCoroutine(KickBool());
         playerAnimator.SetBool(KickAnimation, true);
 
         yield return new WaitForSeconds(Mathf.Max(KickTime, MinKickTime));
 
         playerAnimator.SetBool(KickAnimation, false);
-        IsKicking = false;
         kickRoutine = null;
+    }
+
+    IEnumerator KickBool()
+    {
+        IsKicking = true;
+        yield return new WaitForSeconds(0.6f);
+        IsKicking = false;
     }
 
     private void OnTriggerEnter(Collider other)

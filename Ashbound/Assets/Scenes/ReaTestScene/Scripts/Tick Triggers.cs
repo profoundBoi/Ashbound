@@ -149,6 +149,7 @@ public class TrickTriggers : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+
             canRecordButtons = true;
             _player = other.gameObject;
             _playerAnimator = _player.GetComponent<Animator>();
