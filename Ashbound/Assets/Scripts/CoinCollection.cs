@@ -43,12 +43,14 @@ public class CoinCollect : MonoBehaviour
         _animator.SetBool("Open", true);
         collectSound.Play();
         Destroy(gameObject, 2);
+        StartCoroutine(FreezeFrames());
     }
 
     IEnumerator FreezeFrames()
     {
-        Time.timeScale = 0.2f;
         yield return new WaitForSeconds(0.2f);
+        Time.timeScale = 0.5f;
+        yield return new WaitForSeconds(0.1f);
         Time.timeScale = 1;
 
     }
