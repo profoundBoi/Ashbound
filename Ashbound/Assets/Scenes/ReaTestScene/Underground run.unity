@@ -795,6 +795,9 @@ MonoBehaviour:
   isSwingToLand: 0
   _grabWaitTime: 0
   _grabDuration: 0
+  _CorrectButton: {fileID: 0}
+  _WrongButton: {fileID: 0}
+  _CompleteButton: {fileID: 0}
 --- !u!65 &52282840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -956,6 +959,9 @@ MonoBehaviour:
   isSwingToLand: 0
   _grabWaitTime: 0
   _grabDuration: 0
+  _CorrectButton: {fileID: 0}
+  _WrongButton: {fileID: 0}
+  _CompleteButton: {fileID: 0}
 --- !u!65 &60030438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1657,6 +1663,9 @@ MonoBehaviour:
   isSwingToLand: 0
   _grabWaitTime: 0
   _grabDuration: 0
+  _CorrectButton: {fileID: 0}
+  _WrongButton: {fileID: 0}
+  _CompleteButton: {fileID: 0}
 --- !u!65 &105387904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5699,6 +5708,9 @@ MonoBehaviour:
   isSwingToLand: 1
   _grabWaitTime: 0.8
   _grabDuration: 0.7
+  _CorrectButton: {fileID: 0}
+  _WrongButton: {fileID: 0}
+  _CompleteButton: {fileID: 0}
 --- !u!65 &370925034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14172,12 +14184,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638969072}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.61241, y: 0.07993, z: -253.72942}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.94891, y: -9.51186, z: -3.9338531}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1749203772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &639512581
 PrefabInstance:
@@ -16895,6 +16907,7 @@ GameObject:
   - component: {fileID: 862529707}
   - component: {fileID: 862529706}
   - component: {fileID: 862529705}
+  - component: {fileID: 862529708}
   m_Layer: 5
   m_Name: Button West
   m_TagString: Untagged
@@ -16978,6 +16991,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862529703}
   m_CullTransparentMesh: 1
+--- !u!114 &862529708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862529703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2f69383485e73429038337b4195f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonCloneManager
+  _clone: {fileID: 4052443588192021882, guid: 84823703157faaa40be9c1243223ff5e, type: 3}
 --- !u!1 &873956834
 GameObject:
   m_ObjectHideFlags: 0
@@ -21278,6 +21304,7 @@ GameObject:
   - component: {fileID: 1223096561}
   - component: {fileID: 1223096560}
   - component: {fileID: 1223096559}
+  - component: {fileID: 1223096562}
   m_Layer: 5
   m_Name: Button South
   m_TagString: Untagged
@@ -21361,6 +21388,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223096557}
   m_CullTransparentMesh: 1
+--- !u!114 &1223096562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223096557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2f69383485e73429038337b4195f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonCloneManager
+  _clone: {fileID: 3500268270140493176, guid: 37e1a92fc372a6a44b030070b637906b, type: 3}
 --- !u!4 &1223472709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1312805339245156483, guid: ebb438eae5654b24db4d4c1f4da94b7c, type: 3}
@@ -28103,6 +28143,9 @@ MonoBehaviour:
   isSwingToLand: 0
   _grabWaitTime: 0
   _grabDuration: 0
+  _CorrectButton: {fileID: 0}
+  _WrongButton: {fileID: 0}
+  _CompleteButton: {fileID: 0}
 --- !u!65 &1654277960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28893,6 +28936,151 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1977618173}
   m_SourcePrefab: {fileID: 100100000, guid: 80ca93fbe181a2c45a786bebdd2a53dd, type: 3}
+--- !u!1 &1729554794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1729554795}
+  - component: {fileID: 1729554797}
+  - component: {fileID: 1729554796}
+  m_Layer: 0
+  m_Name: BGMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1729554795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729554794}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.99631, y: -9.57784, z: 159.53326}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1749203772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729554796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729554794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84e38cb35ab6bd41bfd2752d3381355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusic
+  musicSource: {fileID: 1729554797}
+  backgroundMusic: {fileID: 8300000, guid: fa8990233a3ed264bad6cc09e14c0d5d, type: 3}
+  volume: 0.537
+--- !u!82 &1729554797
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729554794}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: fa8990233a3ed264bad6cc09e14c0d5d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.124
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 256
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1732586285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29812,6 +30000,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2814369418789976589, guid: 7edc23b73021218498c8cfd457a1f471, type: 3}
   m_PrefabInstance: {fileID: 1752905833}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1749203771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1749203772}
+  m_Layer: 0
+  m_Name: SoundManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1749203772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749203771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.3365, y: 9.59179, z: -249.79556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1729554795}
+  - {fileID: 638969074}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1752905833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30027,6 +30248,9 @@ MonoBehaviour:
   isSwingToLand: 0
   _grabWaitTime: 0
   _grabDuration: 0
+  _CorrectButton: {fileID: 0}
+  _WrongButton: {fileID: 0}
+  _CompleteButton: {fileID: 0}
 --- !u!65 &1777419869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30645,6 +30869,7 @@ MonoBehaviour:
   GlideAnimation: 0
   KickTime: 0.8
   KickAnimation: Kick
+  MinKickTime: 0.1
   _pipeAnimator: {fileID: 5217642}
 --- !u!1001 &1826033359
 PrefabInstance:
@@ -32364,6 +32589,9 @@ MonoBehaviour:
   isSwingToLand: 0
   _grabWaitTime: 0
   _grabDuration: 0
+  _CorrectButton: {fileID: 0}
+  _WrongButton: {fileID: 0}
+  _CompleteButton: {fileID: 0}
 --- !u!65 &1931683006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32397,6 +32625,7 @@ GameObject:
   - component: {fileID: 1935718969}
   - component: {fileID: 1935718968}
   - component: {fileID: 1935718967}
+  - component: {fileID: 1935718970}
   m_Layer: 5
   m_Name: Button North
   m_TagString: Untagged
@@ -32480,6 +32709,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935718965}
   m_CullTransparentMesh: 1
+--- !u!114 &1935718970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935718965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2f69383485e73429038337b4195f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonCloneManager
+  _clone: {fileID: 4333833959061422309, guid: 5a0be79564ec5ef4895a50728ab9cf9b, type: 3}
 --- !u!1 &1940313570 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 80ca93fbe181a2c45a786bebdd2a53dd, type: 3}
@@ -33712,6 +33954,9 @@ MonoBehaviour:
   isSwingToLand: 0
   _grabWaitTime: 0
   _grabDuration: 0
+  _CorrectButton: {fileID: 0}
+  _WrongButton: {fileID: 0}
+  _CompleteButton: {fileID: 0}
 --- !u!65 &2063130986
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35835,6 +36080,7 @@ GameObject:
   - component: {fileID: 2136970037}
   - component: {fileID: 2136970036}
   - component: {fileID: 2136970035}
+  - component: {fileID: 2136970038}
   m_Layer: 5
   m_Name: Button East
   m_TagString: Untagged
@@ -35918,6 +36164,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136970033}
   m_CullTransparentMesh: 1
+--- !u!114 &2136970038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136970033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2f69383485e73429038337b4195f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonCloneManager
+  _clone: {fileID: 4611411559023278750, guid: 42bb893e910afc74d9a681b5a04a49ba, type: 3}
 --- !u!23 &1082807636404772242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36103,4 +36362,4 @@ SceneRoots:
   - {fileID: 380273540}
   - {fileID: 5217643}
   - {fileID: 6925063514931740931}
-  - {fileID: 638969074}
+  - {fileID: 1749203772}
