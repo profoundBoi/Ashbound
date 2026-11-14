@@ -13,6 +13,7 @@ TagManager:
   - ShiftRight
   - Floor
   - Tire
+  - End
   layers:
   - Default
   - TransparentFX
