@@ -798,6 +798,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 1601796706}
   _WrongButton: {fileID: 1184682082}
   _CompleteButton: {fileID: 270316653}
+  _TrickPerformAudio: {fileID: 638969073}
+  _SoundWaitTime: 0.5
 --- !u!65 &52282840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -962,6 +964,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 1601796706}
   _WrongButton: {fileID: 1184682082}
   _CompleteButton: {fileID: 270316653}
+  _TrickPerformAudio: {fileID: 638969073}
+  _SoundWaitTime: 0.5
 --- !u!65 &60030438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1666,6 +1670,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 1601796706}
   _WrongButton: {fileID: 1184682082}
   _CompleteButton: {fileID: 270316653}
+  _TrickPerformAudio: {fileID: 638969073}
+  _SoundWaitTime: 0.5
 --- !u!65 &105387904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5840,6 +5846,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 1601796706}
   _WrongButton: {fileID: 1184682082}
   _CompleteButton: {fileID: 270316653}
+  _TrickPerformAudio: {fileID: 638969073}
+  _SoundWaitTime: 0.5
 --- !u!65 &370925034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28533,6 +28541,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 0}
   _WrongButton: {fileID: 0}
   _CompleteButton: {fileID: 0}
+  _TrickPerformAudio: {fileID: 0}
+  _SoundWaitTime: 0
 --- !u!65 &1654277960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30641,6 +30651,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 1601796706}
   _WrongButton: {fileID: 1184682082}
   _CompleteButton: {fileID: 270316653}
+  _TrickPerformAudio: {fileID: 638969073}
+  _SoundWaitTime: 0.5
 --- !u!65 &1777419869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32982,6 +32994,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 1601796706}
   _WrongButton: {fileID: 1184682082}
   _CompleteButton: {fileID: 270316653}
+  _TrickPerformAudio: {fileID: 638969073}
+  _SoundWaitTime: 0.5
 --- !u!65 &1931683006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34347,6 +34361,8 @@ MonoBehaviour:
   _CorrectButton: {fileID: 1601796706}
   _WrongButton: {fileID: 1184682082}
   _CompleteButton: {fileID: 270316653}
+  _TrickPerformAudio: {fileID: 638969073}
+  _SoundWaitTime: 0.5
 --- !u!65 &2063130986
 BoxCollider:
   m_ObjectHideFlags: 0

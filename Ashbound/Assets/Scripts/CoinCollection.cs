@@ -1,11 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class CoinCollect : MonoBehaviour
 {
     [Header("Settings")]
     public int coinValue = 1;
-    public AudioClip collectSound;
+    public AudioSource collectSound;
     public GameObject collectEffect;
+    private Animator _animator;
 
     private bool collected;
 
@@ -13,6 +15,11 @@ public class CoinCollect : MonoBehaviour
 
     private void OnTriggerStay(Collider other) => TryCollect(other);
 
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        collectSound = GetComponent<AudioSource>();
+    }
     private void TryCollect(Collider other)
     {
         if (collected || !other.CompareTag("Player")) return;
@@ -29,12 +36,22 @@ public class CoinCollect : MonoBehaviour
 
         GameManager.Instance.AddCoins(coinValue);
 
-        if (collectSound != null)
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+        
 
         if (collectEffect != null)
             Instantiate(collectEffect, transform.position, Quaternion.identity);
+        _animator.SetBool("Open", true);
+        collectSound.Play();
+        Destroy(gameObject, 2);
+        StartCoroutine(FreezeFrames());
+    }
 
-        Destroy(gameObject);
+    IEnumerator FreezeFrames()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Time.timeScale = 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 1;
+
     }
 }
