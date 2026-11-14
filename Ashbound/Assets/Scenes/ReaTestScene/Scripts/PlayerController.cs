@@ -280,7 +280,9 @@ public class PlayerController : MonoBehaviour
                     else
                     {
                         _manager.FaileTextToShow = _manager._failedText[2];
+                        _trickTriggerScript.FailAnimation = "RunToStop";
                         _trickTriggerScript.FailTrick();
+                       
                     }
                 }
             }
@@ -302,6 +304,7 @@ public class PlayerController : MonoBehaviour
                     else
                     {
                         _manager.FaileTextToShow = _manager._failedText[2];
+                        _trickTriggerScript.FailAnimation = "RunToStop";
                         _trickTriggerScript.FailTrick();
                     }
                 }
@@ -324,6 +327,7 @@ public class PlayerController : MonoBehaviour
                     else
                     {
                         _manager.FaileTextToShow = _manager._failedText[2];
+                        _trickTriggerScript.FailAnimation = "RunToStop";
                         _trickTriggerScript.FailTrick();
                     }
                 }
@@ -346,6 +350,7 @@ public class PlayerController : MonoBehaviour
                     else
                     {
                         _manager.FaileTextToShow = _manager._failedText[2];
+                        _trickTriggerScript.FailAnimation = "RunToStop";
                         _trickTriggerScript.FailTrick();
                     }
                 }

@@ -34,6 +34,7 @@ public class TrickTriggers : MonoBehaviour
     private bool isSwingToLand;
     [SerializeField]
     private float _grabWaitTime, _grabDuration;
+    public string FailAnimation;
 
     [Header("Audio")]
     [SerializeField]
@@ -77,6 +78,8 @@ public class TrickTriggers : MonoBehaviour
         }
         canRecordButtons = false;
         _playerAnimator.SetBool("Fail", true);
+        _playerAnimator.SetBool(FailAnimation, true);
+
         StartCoroutine(SlowDownPlayer());
         if (_manager != null)
         {
@@ -163,13 +166,16 @@ public class TrickTriggers : MonoBehaviour
                 {
                     _manager.FaileTextToShow = _manager._failedText[1];
                 }
+                FailAnimation = "SoccerTrip";
                 FailTrick();
-                
+
             }
             else if (_playerScript.SpeedIndicator < _speedRequired)
             {
                 _manager.FaileTextToShow = _manager._failedText[0];
+                FailAnimation = "RunToStop";
                 FailTrick();
+
             }
 
         }
@@ -185,6 +191,7 @@ public class TrickTriggers : MonoBehaviour
             }
             else
             {
+                FailAnimation = "RunToStop";
                 FailTrick();
             }
         }
