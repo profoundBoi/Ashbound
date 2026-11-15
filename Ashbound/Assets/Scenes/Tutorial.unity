@@ -13160,6 +13160,7 @@ MonoBehaviour:
   uiToHideWhileLocked:
   - {fileID: 749008590}
   - {fileID: 2027062352}
+  - {fileID: 13585419}
 --- !u!1 &1003675100
 GameObject:
   m_ObjectHideFlags: 0

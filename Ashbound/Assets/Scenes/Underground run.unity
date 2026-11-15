@@ -32098,6 +32098,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1bbedf22-d015-4bfa-874b-40aaf3d456b6
     m_ActionName: 'Player/Kick[/DualShock4GamepadHID/leftShoulder]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70354231-1391-42b2-a657-96ecf0185041
+    m_ActionName: 'Player/Look[/DualSenseGamepadHID/rightStick]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -32271,6 +32275,7 @@ MonoBehaviour:
   uiToHideWhileLocked:
   - {fileID: 749008590}
   - {fileID: 337397562}
+  - {fileID: 79510298}
 --- !u!1 &1819796282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3924738180517525837, guid: 92d072eebaa8be341bd7c12032182412, type: 3}
