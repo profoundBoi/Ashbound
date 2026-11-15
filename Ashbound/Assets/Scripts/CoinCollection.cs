@@ -4,7 +4,7 @@ using UnityEngine;
 public class CoinCollect : MonoBehaviour
 {
     [Header("Settings")]
-    public int coinValue = 1;
+    public int toolValue = 1;
     public AudioSource collectSound;
     public GameObject collectEffect;
     private Animator _animator;
@@ -34,7 +34,7 @@ public class CoinCollect : MonoBehaviour
     {
         collected = true;
 
-        GameManager.Instance.AddCoins(coinValue);
+        GameManager.Instance.AddTools(toolValue);
 
         
 

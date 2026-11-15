@@ -5,11 +5,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private const string CoinKey = "TotalCoins";
+    private const string ToolKey = "TotalTools";
 
-    public int CoinCount { get; private set; }
+    public int ToolCount { get; private set; }
 
-    public event Action<int> OnCoinsChanged;
+    public event Action<int> OnToolChanged;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Bootstrap()
@@ -32,36 +32,36 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        CoinCount = PlayerPrefs.GetInt(CoinKey, 0);
+        ToolCount = PlayerPrefs.GetInt(ToolKey, 0);
     }
 
-    public void AddCoins(int amount)
+    public void AddTools(int amount)
     {
-        CoinCount += amount;
+        ToolCount += amount;
         Save();
-        OnCoinsChanged?.Invoke(CoinCount);
+        OnToolChanged?.Invoke(ToolCount);
     }
 
-    public bool SpendCoins(int amount)
+    public bool SpendTool(int amount)
     {
-        if (CoinCount < amount) return false;
+        if (ToolCount < amount) return false;
 
-        CoinCount -= amount;
+        ToolCount -= amount;
         Save();
-        OnCoinsChanged?.Invoke(CoinCount);
+        OnToolChanged?.Invoke(ToolCount);
         return true;
     }
 
-    public void ResetCoins()
+    public void ResetTools()
     {
-        CoinCount = 0;
+        ToolCount = 0;
         Save();
-        OnCoinsChanged?.Invoke(CoinCount);
+        OnToolChanged?.Invoke(ToolCount);
     }
 
     private void Save()
     {
-        PlayerPrefs.SetInt(CoinKey, CoinCount);
+        PlayerPrefs.SetInt(ToolKey, ToolCount);
         PlayerPrefs.Save();
     }
 }

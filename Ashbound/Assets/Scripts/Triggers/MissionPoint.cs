@@ -47,7 +47,7 @@ public class MissionPoint : MonoBehaviour
         || ProgressManager.HasCollectible(requiredCollectibleId);
 
     private bool HasEnoughCaps =>
-        GameManager.Instance.CoinCount >= unlockCost;
+        GameManager.Instance.ToolCount >= unlockCost;
 
     // ---------- Called by your existing player-range trigger ----------
 
@@ -99,12 +99,12 @@ public class MissionPoint : MonoBehaviour
         }
         else if (!HasEnoughCaps)
         {
-            unlockInfoText.text = $"Unlock cost: {unlockCost} caps\nYou have: {GameManager.Instance.CoinCount} caps";
+            unlockInfoText.text = $"Unlock cost: {unlockCost} tools\nYou have: {GameManager.Instance.ToolCount} tools";
             unlockButton.gameObject.SetActive(false);
         }
         else
         {
-            unlockInfoText.text = $"Unlock cost: {unlockCost} caps\nYou have: {GameManager.Instance.CoinCount} caps";
+            unlockInfoText.text = $"Unlock cost: {unlockCost} tools\nYou have: {GameManager.Instance.ToolCount} tools";
             unlockButton.gameObject.SetActive(true);
             if (EventSystem.current != null)
                 EventSystem.current.SetSelectedGameObject(unlockButton.gameObject);
@@ -116,7 +116,7 @@ public class MissionPoint : MonoBehaviour
     public void TryUnlock()
     {
         if (IsUnlocked || !HasRequiredCollectible) return;
-        if (!GameManager.Instance.SpendCoins(unlockCost)) return;
+        if (!GameManager.Instance.SpendTool(unlockCost)) return;
 
         ProgressManager.UnlockLevel(levelId);
         Refresh(); // switches to your original panel

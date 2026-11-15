@@ -4,7 +4,7 @@ using TMPro;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class CoinUI : MonoBehaviour
 {
-    public string prefix = "Caps: ";
+    public string prefix = "Tools: ";
 
     private TextMeshProUGUI text;
 
@@ -17,18 +17,18 @@ public class CoinUI : MonoBehaviour
     {
         if (GameManager.Instance == null) return;
 
-        GameManager.Instance.OnCoinsChanged += Refresh;
-        Refresh(GameManager.Instance.CoinCount);
+        GameManager.Instance.OnToolChanged += Refresh;
+        Refresh(GameManager.Instance.ToolCount);
     }
 
     private void OnDisable()
     {
         if (GameManager.Instance != null)
-            GameManager.Instance.OnCoinsChanged -= Refresh;
+            GameManager.Instance.OnToolChanged -= Refresh;
     }
 
-    private void Refresh(int coins)
+    private void Refresh(int tools)
     {
-        text.text = prefix + coins;
+        text.text = prefix + tools;
     }
 }
