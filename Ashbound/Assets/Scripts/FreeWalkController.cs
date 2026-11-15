@@ -12,6 +12,10 @@ public class FreeWalkController : MonoBehaviour
     public float runMultiplier = 1.6f;
     public float jumpForce = 5f;
 
+    [Header("Stick Turning")]
+    public float stickTurnSpeed = 90f;     // degrees per second at full stick, lower = slower turn
+    public bool strafeWithStick = false;   // true = left/right also slides sideways like before
+
     private Vector3 moveInput;
     private bool isRunning;
     private MissionPoint currentMission;
@@ -123,6 +127,7 @@ public class FreeWalkController : MonoBehaviour
     void Update()
     {
         pendingYaw += lookInput.x * lookSensitivity * Time.deltaTime;
+        pendingYaw += moveInput.x * stickTurnSpeed * Time.deltaTime;   // left stick turns the player
         HandleLookPitch();
     }
 
@@ -139,8 +144,10 @@ public class FreeWalkController : MonoBehaviour
 
         float currentSpeed = isRunning ? speed * runMultiplier : speed;
 
+        Vector3 moveVector = new Vector3(strafeWithStick ? moveInput.x : 0f, 0f, moveInput.z);
+
         Vector3 move = rb.position +
-                       transform.TransformDirection(moveInput) *
+                       transform.TransformDirection(moveVector) *
                        currentSpeed *
                        Time.fixedDeltaTime;
 
