@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TrickTriggers : MonoBehaviour
 {
@@ -42,9 +43,13 @@ public class TrickTriggers : MonoBehaviour
     [SerializeField]
     private float _SoundWaitTime;
 
+    [SerializeField]
+    private PlayerInput _playerInput;
+
     private void Start()
     {
         _manager = FindFirstObjectByType<UIManager>();
+        _playerInput = FindAnyObjectByType<PlayerInput>();
     }
     void SlowDownTime()
     {
@@ -144,12 +149,35 @@ public class TrickTriggers : MonoBehaviour
         }
     }
 
+    private readonly string[] lockedActions =
+    {
+        "Kick",
+        "Speed Increase",
+        "SlowDown",
+        "Move"
+    };
+
+    public void LockButtons()
+    {
+        foreach (string action in lockedActions)
+        {
+            _playerInput.actions[action]?.Disable();
+        }
+    }
+
+    public void UnLockButtons()
+    {
+        foreach (string action in lockedActions)
+        {
+            _playerInput.actions[action]?.Enable();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
+            LockButtons();
             canRecordButtons = true;
             _player = other.gameObject;
             _playerAnimator = _player.GetComponent<Animator>();
@@ -189,6 +217,7 @@ public class TrickTriggers : MonoBehaviour
             if (_trickCompleted)
             {
                 StartCoroutine(PerformTrick());
+                UnLockButtons();
             }
             else
             {
