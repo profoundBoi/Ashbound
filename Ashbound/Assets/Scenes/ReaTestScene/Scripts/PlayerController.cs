@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("Audio")]
-    public AudioSource SideSlide;
+    public AudioSource SideSlide, SpeedIncrease;
 
     private ActionAnimationManager _animationManager;
 
@@ -240,6 +240,7 @@ public class PlayerController : MonoBehaviour
         {
             if (increaseLimit < 5)
             {
+                SpeedIncrease.Play();
                 speed += increaseAmount;
                 spineScript.OnLean();
                 increaseLimit++;

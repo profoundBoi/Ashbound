@@ -24,6 +24,8 @@ public class ActionAnimationManager : MonoBehaviour
     [Header("Pipe Settings")]
     [SerializeField]
     private Animator _pipeAnimator;
+    [SerializeField]
+    private AudioSource _audioSource;
 
     private void Start()
     {
@@ -86,5 +88,6 @@ public class ActionAnimationManager : MonoBehaviour
     void BurstPipes()
     {
         _pipeAnimator.SetBool("Burst", true);
+        _audioSource.Play();
     }
 }
