@@ -23397,7 +23397,7 @@ MonoBehaviour:
   CountdownSeconds: 3
   CountdownAudioSource: {fileID: 1400828040}
   CountdownSound: {fileID: 8300000, guid: 08380e2fc4e977a409e50f86124fefc2, type: 3}
-  GoSound: {fileID: 8300000, guid: d99ef110b1285f24da2d14d62b2ed9b4, type: 3}
+  GoSound: {fileID: 8300000, guid: 36aa5931e6157b245a519595cdf2ade7, type: 3}
 --- !u!4 &1400828039
 Transform:
   m_ObjectHideFlags: 0
