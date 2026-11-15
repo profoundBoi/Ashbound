@@ -9224,8 +9224,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 59796260-c073-436f-b1d1-2f0230310edf
-    m_ActionName: 'Player/Look[/DualSenseGamepadHID/leftStick]'
+    m_ActionId: 70354231-1391-42b2-a657-96ecf0185041
+    m_ActionName: 'Player/Look[/DualSenseGamepadHID/rightStick]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
