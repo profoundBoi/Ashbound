@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -13,9 +14,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private Button pauseButton;
     [SerializeField] private Button resumeButton;
+    [SerializeField] private Button quitButton;
 
     [Header("Controller Navigation")]
     [SerializeField] private GameObject firstSelectedButton;
+
+    [Header("Scene Settings")]
+    [SerializeField] private string menuSceneName = "Menu";
 
     [Header("Options")]
     [SerializeField] private bool pauseAudio = true;
@@ -34,6 +39,9 @@ public class PauseMenu : MonoBehaviour
 
         if (resumeButton != null)
             resumeButton.onClick.AddListener(Resume);
+
+        if (quitButton != null)
+            quitButton.onClick.AddListener(QuitToMenu);
 
 #if ENABLE_INPUT_SYSTEM
         pauseAction = new InputAction("Pause", InputActionType.Button);
@@ -70,6 +78,9 @@ public class PauseMenu : MonoBehaviour
         if (resumeButton != null)
             resumeButton.onClick.RemoveListener(Resume);
 
+        if (quitButton != null)
+            quitButton.onClick.RemoveListener(QuitToMenu);
+
 #if ENABLE_INPUT_SYSTEM
         pauseAction?.Dispose();
 #endif
@@ -102,6 +113,19 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         SetPaused(false);
+    }
+
+    public void QuitToMenu()
+    {
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+
+        IsPaused = false;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        SceneManager.LoadScene(menuSceneName);
     }
 
     private void SetPaused(bool paused)
