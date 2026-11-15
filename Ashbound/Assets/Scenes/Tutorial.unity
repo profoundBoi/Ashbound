@@ -12887,6 +12887,7 @@ MonoBehaviour:
   shiftAmount: 1
   shiftSpeed: 10
   SideSlide: {fileID: 707961155}
+  SpeedIncrease: {fileID: 0}
 --- !u!114 &980682985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13144,6 +13145,7 @@ MonoBehaviour:
   KickAnimation: Kick
   MinKickTime: 0.1
   _pipeAnimator: {fileID: 0}
+  _audioSource: {fileID: 0}
 --- !u!114 &980682993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20688,6 +20690,7 @@ MonoBehaviour:
   shiftAmount: 1
   shiftSpeed: 10
   SideSlide: {fileID: 0}
+  SpeedIncrease: {fileID: 0}
 --- !u!114 &1255821105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23657,7 +23660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 45b3072d767e5e34897aea526498fbbb, type: 3}
+  m_Texture: {fileID: 2800000, guid: 80a00ae8535cb3042b1089b61c26a92f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
