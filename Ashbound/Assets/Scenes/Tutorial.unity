@@ -24339,7 +24339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Safe Zone
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6dfa1a2265907064fa4f49e9502508e0, type: 2}
   m_sharedMaterial: {fileID: -5917758841854003398, guid: 6dfa1a2265907064fa4f49e9502508e0, type: 2}
@@ -28934,9 +28934,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1977125994}
-        m_TargetAssemblyTypeName: PausePanelController, Assembly-CSharp
-        m_MethodName: ReturnToHub
+      - m_Target: {fileID: 13585420}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: QuitToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
