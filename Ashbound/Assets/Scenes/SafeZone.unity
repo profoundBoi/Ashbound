@@ -7567,7 +7567,7 @@ MonoBehaviour:
   missionSceneName: Underground run
   levelId: Level2
   requiredCollectibleId: 
-  unlockCost: 50
+  unlockCost: 10
   unlockPanel: {fileID: 636046573}
   unlockTitleText: {fileID: 1238411173}
   unlockInfoText: {fileID: 1472305819}
