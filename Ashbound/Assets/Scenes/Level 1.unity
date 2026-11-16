@@ -12331,7 +12331,6 @@ MonoBehaviour:
   uiToHideWhileLocked:
   - {fileID: 749008590}
   - {fileID: 5640612}
-  - {fileID: 1380441886}
   - {fileID: 1046561135}
 --- !u!1 &997963034
 GameObject:
@@ -22750,14 +22749,14 @@ RectTransform:
   m_GameObject: {fileID: 1380441886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
+  m_LocalScale: {x: 0.21382777, y: 0.38803697, z: 0.38803697}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1041922346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -59.312958}
+  m_AnchoredPosition: {x: 0, y: -39}
   m_SizeDelta: {x: 505.40698, y: 118.625916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1380441888
