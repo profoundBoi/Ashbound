@@ -21089,6 +21089,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efbecb8642d743543b2aea10342bf14c, type: 3}
+--- !u!114 &1001341752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 13306186302585433, guid: efbecb8642d743543b2aea10342bf14c, type: 3}
+  m_PrefabInstance: {fileID: 1001341751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0934ebfd7cf6cf468b990a2b9e3ffe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIController
 --- !u!1 &1003675100
 GameObject:
   m_ObjectHideFlags: 0
@@ -35490,6 +35501,62 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 70354231-1391-42b2-a657-96ecf0185041
     m_ActionName: 'Player/Look[/DualSenseGamepadHID/rightStick]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1001341752}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c4ef48f7-b432-4a64-a102-1a0dffdb0820
+    m_ActionName: 'Player/Pause/Play[/DualShock4GamepadHID/start]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c1cfbd5c-6b6f-487e-8bbb-0ccd5f227bd8
+    m_ActionName: 'UIs/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/rightStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/rightStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/rightStick/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/rightStick/right,/DualShock4GamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 60f44f11-b1da-40cd-9751-c8e53bee43a3
+    m_ActionName: 'UIs/Submit[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f4478b15-7aa4-42c9-b280-3ba3acb9ca71
+    m_ActionName: 'UIs/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1e1ec3ea-7308-44f4-bf4d-45e3ee2c5202
+    m_ActionName: 'UIs/Point[/Mouse/position,/Pen/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 294b2d23-3718-47d5-ad86-0175af6ba8ec
+    m_ActionName: 'UIs/Click[/Mouse/leftButton,/Pen/tip]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ef6aaaea-a79d-4553-acff-285288ebca2b
+    m_ActionName: 'UIs/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2ce5fe6a-6f02-439e-8aff-cc905f491c30
+    m_ActionName: 'UIs/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b0e76ece-75c9-45a2-8d43-cece43a8a37f
+    m_ActionName: 'UIs/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e55ff43d-aed0-4fe8-bc17-88950f5a8bcd
+    m_ActionName: UIs/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5dbd145-881b-4e30-8ae5-5c4f1ce09696
+    m_ActionName: UIs/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
