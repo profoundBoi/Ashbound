@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,12 +30,23 @@ public class MissionPoint : MonoBehaviour
     public TMP_Text unlockInfoText;    // cost / status messages
     public Button unlockButton;
 
+    [Header("Controller Navigation")]
+    [Tooltip("Button selected when the original (unlocked) panel opens, e.g. the Start button.")]
+    public GameObject unlockedFirstSelected;
+    [Tooltip("Button selected when locked and the player can't unlock yet, e.g. a Close button. Optional.")]
+    public GameObject lockedFirstSelected;
+
+    [Header("Pause Button")]
+    [Tooltip("The on-screen pause button (PauseBT). Hidden while the player is at this mission point.")]
+    public GameObject pauseButtonObject;
+
     [Header("Original Panel Events (your existing setup)")]
     public UnityEvent onOpen;    // opens your original panel
     public UnityEvent onClose;   // closes your original panel
     public UnityEvent onStart;
 
     private bool originalPanelShown;
+    private bool pauseButtonHidden;
 
     // ---------- State checks ----------
 
@@ -53,18 +65,26 @@ public class MissionPoint : MonoBehaviour
 
     public void Open()
     {
+        HidePauseButton();
         Refresh();
     }
 
     public void Close()
     {
+        StopAllCoroutines();
+
         if (unlockPanel != null) unlockPanel.SetActive(false);
+
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
 
         if (originalPanelShown)
         {
             originalPanelShown = false;
             onClose?.Invoke();
         }
+
+        ShowPauseButton();
     }
 
     // ---------- Decides which panel to show ----------
@@ -81,6 +101,8 @@ public class MissionPoint : MonoBehaviour
                 originalPanelShown = true;
                 onOpen?.Invoke();
             }
+
+            SelectNextFrame(unlockedFirstSelected);
             return;
         }
 
@@ -92,22 +114,23 @@ public class MissionPoint : MonoBehaviour
         unlockButton.onClick.RemoveAllListeners();
         unlockButton.onClick.AddListener(TryUnlock);
 
+        unlockInfoText.text = $"Unlock cost: {unlockCost} tools\nYou have: {GameManager.Instance.ToolCount} tools";
+
         if (!HasRequiredCollectible)
         {
             unlockInfoText.text = "Find the special item in the previous level to unlock.";
             unlockButton.gameObject.SetActive(false);
+            SelectNextFrame(lockedFirstSelected);
         }
         else if (!HasEnoughCaps)
         {
-            unlockInfoText.text = $"Unlock cost: {unlockCost} tools\nYou have: {GameManager.Instance.ToolCount} tools";
             unlockButton.gameObject.SetActive(false);
+            SelectNextFrame(lockedFirstSelected);
         }
         else
         {
-            unlockInfoText.text = $"Unlock cost: {unlockCost} tools\nYou have: {GameManager.Instance.ToolCount} tools";
             unlockButton.gameObject.SetActive(true);
-            if (EventSystem.current != null)
-                EventSystem.current.SetSelectedGameObject(unlockButton.gameObject);
+            SelectNextFrame(unlockButton.gameObject);
         }
     }
 
@@ -132,5 +155,51 @@ public class MissionPoint : MonoBehaviour
 
         if (!string.IsNullOrEmpty(missionSceneName))
             SceneManager.LoadScene(missionSceneName);
+    }
+
+    // ---------- Pause button helpers ----------
+
+    private void HidePauseButton()
+    {
+        if (pauseButtonObject == null) return;
+
+        pauseButtonObject.SetActive(false);
+        pauseButtonHidden = true;
+    }
+
+    private void ShowPauseButton()
+    {
+        if (pauseButtonObject == null || !pauseButtonHidden) return;
+
+        pauseButtonObject.SetActive(true);
+        pauseButtonHidden = false;
+    }
+
+    private void OnDisable()
+    {
+        // Don't leave the pause button hidden if this node gets disabled
+        ShowPauseButton();
+    }
+
+    // ---------- Selection helpers ----------
+
+    // Waits one frame so the same south press that opened the node
+    // isn't also read as "Submit" on the newly selected button.
+    private void SelectNextFrame(GameObject target)
+    {
+        StopAllCoroutines();
+        StartCoroutine(SelectRoutine(target));
+    }
+
+    private IEnumerator SelectRoutine(GameObject target)
+    {
+        yield return null;
+
+        if (EventSystem.current == null) yield break;
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        if (target != null && target.activeInHierarchy)
+            EventSystem.current.SetSelectedGameObject(target);
     }
 }
