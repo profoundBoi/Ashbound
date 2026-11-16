@@ -586,6 +586,8 @@ GameObject:
   - component: {fileID: 14010834}
   - component: {fileID: 14010836}
   - component: {fileID: 14010835}
+  - component: {fileID: 14010838}
+  - component: {fileID: 14010837}
   m_Layer: 0
   m_Name: Tires .001
   m_TagString: Untagged
@@ -665,6 +667,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14010833}
   m_Mesh: {fileID: -644854443928256228, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &14010837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14010833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 0
+  isHitFail: 1
+  _player: {fileID: 0}
+--- !u!65 &14010838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14010833}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.05353268, z: 0.120654166}
+  m_Center: {x: 0.000000008381903, y: -0.010319477, z: 0.008058734}
 --- !u!1 &19420132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,6 +1638,8 @@ GameObject:
   - component: {fileID: 95333549}
   - component: {fileID: 95333551}
   - component: {fileID: 95333550}
+  - component: {fileID: 95333553}
+  - component: {fileID: 95333552}
   m_Layer: 0
   m_Name: Trash.007
   m_TagString: Untagged
@@ -1679,6 +1719,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95333548}
   m_Mesh: {fileID: -5287464262191496227, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &95333552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95333548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &95333553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95333548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02660682, y: 0.02659587, z: 0.019247897}
+  m_Center: {x: -0.000012043398, y: -0.0000012852249, z: 0.0028376856}
 --- !u!1 &98799472
 GameObject:
   m_ObjectHideFlags: 0
@@ -6497,6 +6573,8 @@ GameObject:
   - component: {fileID: 437087420}
   - component: {fileID: 437087422}
   - component: {fileID: 437087421}
+  - component: {fileID: 437087424}
+  - component: {fileID: 437087423}
   m_Layer: 0
   m_Name: Trash.001
   m_TagString: Untagged
@@ -6576,6 +6654,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437087419}
   m_Mesh: {fileID: 3079414408871465946, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &437087423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437087419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &437087424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437087419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.101175554, y: 0.098347574, z: 0.027537562}
+  m_Center: {x: 0.0010338565, y: 0.0033874554, z: 0.0047773276}
 --- !u!1 &453287607
 GameObject:
   m_ObjectHideFlags: 0
@@ -6985,6 +7099,8 @@ GameObject:
   - component: {fileID: 483706701}
   - component: {fileID: 483706703}
   - component: {fileID: 483706702}
+  - component: {fileID: 483706705}
+  - component: {fileID: 483706704}
   m_Layer: 0
   m_Name: Bins.001
   m_TagString: Untagged
@@ -7064,6 +7180,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483706700}
   m_Mesh: {fileID: 6875215205553765666, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &483706704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483706700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &483706705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483706700}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.053437836, y: 0.05296229, z: 0.027537536}
+  m_Center: {x: 0.003730962, y: 0.00018377972, z: 0.004777328}
 --- !u!1 &483714590
 GameObject:
   m_ObjectHideFlags: 0
@@ -9949,6 +10101,8 @@ GameObject:
   - component: {fileID: 712756588}
   - component: {fileID: 712756590}
   - component: {fileID: 712756589}
+  - component: {fileID: 712756592}
+  - component: {fileID: 712756591}
   m_Layer: 0
   m_Name: Bin
   m_TagString: Untagged
@@ -10028,6 +10182,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712756587}
   m_Mesh: {fileID: -5844435623575427901, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!65 &712756591
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712756587}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.03744836, y: 0.11945952, z: 0.023052368}
+  m_Center: {x: -0.0027068388, y: 0.0073374812, z: -0.002037929}
+--- !u!114 &712756592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712756587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
 --- !u!1 &718289989
 GameObject:
   m_ObjectHideFlags: 0
@@ -10454,6 +10644,8 @@ GameObject:
   - component: {fileID: 783261600}
   - component: {fileID: 783261602}
   - component: {fileID: 783261601}
+  - component: {fileID: 783261604}
+  - component: {fileID: 783261603}
   m_Layer: 0
   m_Name: Tires .004
   m_TagString: Untagged
@@ -10533,6 +10725,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783261599}
   m_Mesh: {fileID: 3869108438707239612, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &783261603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783261599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &783261604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783261599}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000003, y: 0.05353269, z: 0.120654196}
+  m_Center: {x: 5.432103e-10, y: -0.010319444, z: 0.008058725}
 --- !u!1 &788742417
 GameObject:
   m_ObjectHideFlags: 0
@@ -10635,6 +10863,8 @@ GameObject:
   - component: {fileID: 791395153}
   - component: {fileID: 791395155}
   - component: {fileID: 791395154}
+  - component: {fileID: 791395157}
+  - component: {fileID: 791395156}
   m_Layer: 0
   m_Name: Tires .002
   m_TagString: Untagged
@@ -10714,6 +10944,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791395152}
   m_Mesh: {fileID: 4585248877273228791, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &791395156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791395152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &791395157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791395152}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.05503454, z: 0.07334274}
+  m_Center: {x: 0.000000008381903, y: -0.0049078437, z: -0.008178581}
 --- !u!1 &799395646
 GameObject:
   m_ObjectHideFlags: 0
@@ -14210,6 +14476,8 @@ GameObject:
   - component: {fileID: 1036870281}
   - component: {fileID: 1036870283}
   - component: {fileID: 1036870282}
+  - component: {fileID: 1036870285}
+  - component: {fileID: 1036870284}
   m_Layer: 0
   m_Name: Trash.004
   m_TagString: Untagged
@@ -14289,6 +14557,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036870280}
   m_Mesh: {fileID: -7309416463383271065, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &1036870284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036870280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &1036870285
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036870280}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.101175554, y: 0.098347574, z: 0.027537562}
+  m_Center: {x: 0.0010338863, y: 0.0033875746, z: 0.0047773276}
 --- !u!1 &1037427370
 GameObject:
   m_ObjectHideFlags: 0
@@ -14729,6 +15033,8 @@ GameObject:
   - component: {fileID: 1072960875}
   - component: {fileID: 1072960877}
   - component: {fileID: 1072960876}
+  - component: {fileID: 1072960879}
+  - component: {fileID: 1072960878}
   m_Layer: 0
   m_Name: Tires .003
   m_TagString: Untagged
@@ -14808,6 +15114,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072960874}
   m_Mesh: {fileID: 3426302845773954275, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &1072960878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072960874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 0
+  isHitFail: 1
+  _player: {fileID: 0}
+--- !u!65 &1072960879
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072960874}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.05353268, z: 0.120654166}
+  m_Center: {x: 0.000000008381903, y: -0.010319447, z: 0.008058734}
 --- !u!114 &1090866416 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6147926380295591744, guid: c0656a0ad5588794dbfb00a0ff2f4561, type: 3}
@@ -15049,8 +15391,55 @@ PrefabInstance:
     - {fileID: 6050410059596818225, guid: 92d072eebaa8be341bd7c12032182412, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3924738180517525837, guid: 92d072eebaa8be341bd7c12032182412, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1105342319}
+    - targetCorrespondingSourceObject: {fileID: 3924738180517525837, guid: 92d072eebaa8be341bd7c12032182412, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1105342318}
   m_SourcePrefab: {fileID: 100100000, guid: 92d072eebaa8be341bd7c12032182412, type: 3}
+--- !u!1 &1105342317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3924738180517525837, guid: 92d072eebaa8be341bd7c12032182412, type: 3}
+  m_PrefabInstance: {fileID: 1105342316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1105342318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105342317}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1105342319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105342317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 0
+  isHitFail: 1
+  _player: {fileID: 0}
 --- !u!1 &1105356081
 GameObject:
   m_ObjectHideFlags: 0
@@ -21800,6 +22189,8 @@ GameObject:
   - component: {fileID: 1293217095}
   - component: {fileID: 1293217097}
   - component: {fileID: 1293217096}
+  - component: {fileID: 1293217099}
+  - component: {fileID: 1293217098}
   m_Layer: 0
   m_Name: Tires
   m_TagString: Untagged
@@ -21879,6 +22270,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293217094}
   m_Mesh: {fileID: 7047051703223717897, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!65 &1293217098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293217094}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.019999996, z: 0.05904066}
+  m_Center: {x: 0.000000008381903, y: 9.31323e-10, z: 7.940934e-23}
+--- !u!114 &1293217099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293217094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 0
+  isHitFail: 1
+  _player: {fileID: 0}
 --- !u!1 &1294239700
 GameObject:
   m_ObjectHideFlags: 0
@@ -22740,6 +23167,8 @@ GameObject:
   - component: {fileID: 1372177174}
   - component: {fileID: 1372177176}
   - component: {fileID: 1372177175}
+  - component: {fileID: 1372177178}
+  - component: {fileID: 1372177177}
   m_Layer: 0
   m_Name: Bins.002
   m_TagString: Untagged
@@ -22819,6 +23248,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372177173}
   m_Mesh: {fileID: 2575501492141176668, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &1372177177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372177173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &1372177178
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372177173}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.040616494, y: 0.038216554, z: 0.024070233}
+  m_Center: {x: 0.00032196156, y: -0.009009916, z: -0.0021222946}
 --- !u!1 &1374437228
 GameObject:
   m_ObjectHideFlags: 0
@@ -23034,6 +23499,8 @@ GameObject:
   - component: {fileID: 1376823188}
   - component: {fileID: 1376823190}
   - component: {fileID: 1376823189}
+  - component: {fileID: 1376823192}
+  - component: {fileID: 1376823191}
   m_Layer: 0
   m_Name: Trash.009
   m_TagString: Untagged
@@ -23113,6 +23580,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376823187}
   m_Mesh: {fileID: -4799197744985590749, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &1376823191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376823187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &1376823192
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376823187}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.09940028, y: 0.14384001, z: 0.04713037}
+  m_Center: {x: -0.0026090275, y: 0.008860426, z: 0.01065519}
 --- !u!1 &1379147887
 GameObject:
   m_ObjectHideFlags: 0
@@ -28090,6 +28593,8 @@ GameObject:
   - component: {fileID: 1755978587}
   - component: {fileID: 1755978589}
   - component: {fileID: 1755978588}
+  - component: {fileID: 1755978591}
+  - component: {fileID: 1755978590}
   m_Layer: 0
   m_Name: Trash
   m_TagString: Untagged
@@ -28169,6 +28674,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755978586}
   m_Mesh: {fileID: 5080731651295093379, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &1755978590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755978586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &1755978591
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755978586}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.053437836, y: 0.05296229, z: 0.027537536}
+  m_Center: {x: 0.003730962, y: 0.00018366051, z: 0.004777327}
 --- !u!1 &1762640675
 GameObject:
   m_ObjectHideFlags: 0
@@ -28480,6 +29021,8 @@ GameObject:
   - component: {fileID: 1781954206}
   - component: {fileID: 1781954208}
   - component: {fileID: 1781954207}
+  - component: {fileID: 1781954210}
+  - component: {fileID: 1781954209}
   m_Layer: 0
   m_Name: Trash.003
   m_TagString: Untagged
@@ -28559,6 +29102,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781954205}
   m_Mesh: {fileID: -5395646203626511723, guid: 6f11b6ed5e7c5da4f93e3e8d01c51c9d, type: 3}
+--- !u!114 &1781954209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781954205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1427abfca689249983c0eb940dff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxScripts
+  isTripFail: 1
+  isHitFail: 0
+  _player: {fileID: 0}
+--- !u!65 &1781954210
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781954205}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.101175554, y: 0.098347574, z: 0.027537562}
+  m_Center: {x: 0.0010338565, y: 0.0033874703, z: 0.0047773276}
 --- !u!1 &1786177350
 GameObject:
   m_ObjectHideFlags: 0
