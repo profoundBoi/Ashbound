@@ -8435,6 +8435,7 @@ GameObject:
   - component: {fileID: 692688009}
   - component: {fileID: 692688012}
   - component: {fileID: 692688011}
+  - component: {fileID: 692688013}
   m_Layer: 0
   m_Name: Fence.009
   m_TagString: Untagged
@@ -8548,8 +8549,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.02, y: 0.019999996, z: 0.019999994}
-  m_Center: {x: -0.000007889248, y: 0.0012200612, z: 0.000013761452}
+  m_Size: {x: 0.006660643, y: 0.019999996, z: 0.020332333}
+  m_Center: {x: -0.006677562, y: 0.0012200613, z: 0.00017991212}
+--- !u!65 &692688013
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692688007}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0061301733, y: 0.019999996, z: 0.019999994}
+  m_Center: {x: 0.0069270157, y: 0.0012200612, z: 0.00001376186}
 --- !u!1 &692906460 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -751476226918971245, guid: 640140b7eb81ff2478e82be3a3727deb, type: 3}

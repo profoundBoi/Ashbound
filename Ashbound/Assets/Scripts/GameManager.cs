@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,7 +8,10 @@ public class GameManager : MonoBehaviour
 
     private const string ToolKey = "TotalTools";
 
-    public int ToolCount { get; private set; }
+    private int savedTools;  
+    private int runTools;     
+
+    public int ToolCount => savedTools + runTools;
 
     public event Action<int> OnToolChanged;
 
@@ -32,21 +36,42 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        ToolCount = PlayerPrefs.GetInt(ToolKey, 0);
+        savedTools = PlayerPrefs.GetInt(ToolKey, 0);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (runTools == 0) return;
+        runTools = 0;
+        OnToolChanged?.Invoke(ToolCount);
     }
 
     public void AddTools(int amount)
     {
-        ToolCount += amount;
+        runTools += amount;                 
+        OnToolChanged?.Invoke(ToolCount);
+    }
+
+    public void CommitTools()
+    {
+        savedTools += runTools;
+        runTools = 0;
         Save();
         OnToolChanged?.Invoke(ToolCount);
     }
 
     public bool SpendTool(int amount)
     {
-        if (ToolCount < amount) return false;
+        if (savedTools < amount) return false;   
 
-        ToolCount -= amount;
+        savedTools -= amount;
         Save();
         OnToolChanged?.Invoke(ToolCount);
         return true;
@@ -54,14 +79,15 @@ public class GameManager : MonoBehaviour
 
     public void ResetTools()
     {
-        ToolCount = 0;
+        savedTools = 0;
+        runTools = 0;
         Save();
         OnToolChanged?.Invoke(ToolCount);
     }
 
     private void Save()
     {
-        PlayerPrefs.SetInt(ToolKey, ToolCount);
+        PlayerPrefs.SetInt(ToolKey, savedTools);
         PlayerPrefs.Save();
     }
 }

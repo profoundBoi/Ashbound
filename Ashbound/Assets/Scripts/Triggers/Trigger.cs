@@ -6,7 +6,7 @@ public class Trigger : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject panel;
-    [SerializeField] private GameObject firstSelectedButton; 
+    [SerializeField] private GameObject firstSelectedButton;
 
     [Header("Scene Names")]
     [SerializeField] private string hubSceneName = "Hub";
@@ -29,6 +29,10 @@ public class Trigger : MonoBehaviour
         if (!other.CompareTag(playerTag)) return;
 
         hasTriggered = true;
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.CommitTools();
+
         ShowPanel();
     }
 
@@ -56,12 +60,6 @@ public class Trigger : MonoBehaviour
     public void RestartScene()
     {
         Time.timeScale = 1f;
-
-        if (GameManager.Instance != null)
-        {
-            Destroy(GameManager.Instance.gameObject);
-
-        }
 
         Scene current = SceneManager.GetActiveScene();
         SceneManager.LoadScene(current.name, LoadSceneMode.Single);

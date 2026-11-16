@@ -22,7 +22,7 @@ public class PausePanelController : MonoBehaviour
         if (pausePanel == null) return;
 
         pausePanel.SetActive(true);
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
 
         if (firstSelectedButton != null)
         {
@@ -41,12 +41,6 @@ public class PausePanelController : MonoBehaviour
     public void RestartScene()
     {
         Time.timeScale = 1f;
-
-        if (GameManager.Instance != null)
-        {
-            Destroy(GameManager.Instance.gameObject);
-           
-        }
 
         Scene current = SceneManager.GetActiveScene();
         SceneManager.LoadScene(current.name, LoadSceneMode.Single);
