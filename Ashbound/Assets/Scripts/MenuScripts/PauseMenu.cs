@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -16,8 +15,14 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button quitButton;
 
+    [Header("Controls Panel")] // NEW
+    [SerializeField] private GameObject controlsPanel; // NEW
+    [SerializeField] private Button controlsButton; // NEW
+    [SerializeField] private Button closeControlsButton; // NEW
+
     [Header("Controller Navigation")]
     [SerializeField] private GameObject firstSelectedButton;
+    [SerializeField] private GameObject controlsFirstSelectedButton; // NEW (usually the close button)
 
     [Header("Scene Settings")]
     [SerializeField] private string menuSceneName = "Menu";
@@ -27,6 +32,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private bool manageCursor = true;
 
     public bool IsPaused { get; private set; }
+    public bool IsControlsOpen { get; private set; } // NEW
 
 #if ENABLE_INPUT_SYSTEM
     private InputAction pauseAction;
@@ -43,16 +49,25 @@ public class PauseMenu : MonoBehaviour
         if (quitButton != null)
             quitButton.onClick.AddListener(QuitToMenu);
 
+        if (controlsButton != null) // NEW
+            controlsButton.onClick.AddListener(OpenControls);
+
+        if (closeControlsButton != null) // NEW
+            closeControlsButton.onClick.AddListener(CloseControls);
+
 #if ENABLE_INPUT_SYSTEM
         pauseAction = new InputAction("Pause", InputActionType.Button);
         pauseAction.AddBinding("<Gamepad>/start");
         pauseAction.AddBinding("<Keyboard>/escape");
-        pauseAction.performed += _ => TogglePause();
+        pauseAction.performed += OnPausePerformed;
 #endif
     }
 
     private void Start()
     {
+        if (controlsPanel != null) // NEW
+            controlsPanel.SetActive(false);
+
         SetPaused(false);
     }
 
@@ -81,13 +96,30 @@ public class PauseMenu : MonoBehaviour
         if (quitButton != null)
             quitButton.onClick.RemoveListener(QuitToMenu);
 
+        if (controlsButton != null) // NEW
+            controlsButton.onClick.RemoveListener(OpenControls);
+
+        if (closeControlsButton != null) // NEW
+            closeControlsButton.onClick.RemoveListener(CloseControls);
+
 #if ENABLE_INPUT_SYSTEM
-        pauseAction?.Dispose();
+        if (pauseAction != null)
+        {
+            pauseAction.performed -= OnPausePerformed;
+            pauseAction.Dispose();
+        }
 #endif
 
         Time.timeScale = 1f;
         AudioListener.pause = false;
     }
+
+#if ENABLE_INPUT_SYSTEM
+    private void OnPausePerformed(InputAction.CallbackContext ctx) // NEW (replaces the lambda)
+    {
+        HandlePauseInput();
+    }
+#endif
 
 #if !ENABLE_INPUT_SYSTEM
     private void Update()
@@ -95,10 +127,22 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) ||
             Input.GetKeyDown(KeyCode.JoystickButton7))
         {
-            TogglePause();
+            HandlePauseInput();
         }
     }
 #endif
+
+    // NEW: Escape/Start closes the controls panel first, then toggles pause
+    private void HandlePauseInput()
+    {
+        if (IsControlsOpen)
+        {
+            CloseControls();
+            return;
+        }
+
+        TogglePause();
+    }
 
     public void TogglePause()
     {
@@ -115,12 +159,47 @@ public class PauseMenu : MonoBehaviour
         SetPaused(false);
     }
 
+    // NEW
+    public void OpenControls()
+    {
+        if (!IsPaused || controlsPanel == null)
+            return;
+
+        IsControlsOpen = true;
+        controlsPanel.SetActive(true);
+
+        if (pausePanel != null)
+            pausePanel.SetActive(false);
+
+        SelectButton(controlsFirstSelectedButton != null
+            ? controlsFirstSelectedButton
+            : closeControlsButton != null ? closeControlsButton.gameObject : null);
+    }
+
+    // NEW
+    public void CloseControls()
+    {
+        if (!IsControlsOpen)
+            return;
+
+        IsControlsOpen = false;
+
+        if (controlsPanel != null)
+            controlsPanel.SetActive(false);
+
+        if (pausePanel != null && IsPaused)
+            pausePanel.SetActive(true);
+
+        SelectButton(firstSelectedButton);
+    }
+
     public void QuitToMenu()
     {
         Time.timeScale = 1f;
         AudioListener.pause = false;
 
         IsPaused = false;
+        IsControlsOpen = false; // NEW
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -131,6 +210,14 @@ public class PauseMenu : MonoBehaviour
     private void SetPaused(bool paused)
     {
         IsPaused = paused;
+
+        // NEW: make sure controls panel never stays open when unpausing
+        if (!paused)
+        {
+            IsControlsOpen = false;
+            if (controlsPanel != null)
+                controlsPanel.SetActive(false);
+        }
 
         if (pausePanel != null)
             pausePanel.SetActive(paused);
@@ -151,14 +238,21 @@ public class PauseMenu : MonoBehaviour
                 : CursorLockMode.Locked;
         }
 
-        if (paused && firstSelectedButton != null)
-        {
+        if (paused)
+            SelectButton(firstSelectedButton);
+        else
             EventSystem.current?.SetSelectedGameObject(null);
-            EventSystem.current?.SetSelectedGameObject(firstSelectedButton);
-        }
-        else if (!paused)
-        {
-            EventSystem.current?.SetSelectedGameObject(null);
-        }
+    }
+
+    // NEW: helper to reduce repeated EventSystem code
+    private void SelectButton(GameObject target)
+    {
+        if (EventSystem.current == null)
+            return;
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        if (target != null)
+            EventSystem.current.SetSelectedGameObject(target);
     }
 }
