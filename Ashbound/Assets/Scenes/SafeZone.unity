@@ -1044,13 +1044,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pausePanel: {fileID: 1687540135}
   pauseButton: {fileID: 153334185}
-  resumeButton: {fileID: 0}
-  quitButton: {fileID: 0}
+  resumeButton: {fileID: 487345382}
+  quitButton: {fileID: 2098714105}
   controlsPanel: {fileID: 1869778291}
   controlsButton: {fileID: 1394606104}
   closeControlsButton: {fileID: 1869778290}
-  firstSelectedButton: {fileID: 0}
-  controlsFirstSelectedButton: {fileID: 0}
+  firstSelectedButton: {fileID: 487345379}
+  controlsFirstSelectedButton: {fileID: 1869778292}
   menuSceneName: MainMenu
   pauseAudio: 1
   manageCursor: 1
@@ -15466,7 +15466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1687540136
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21192,7 +21192,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 46524419527308131, guid: b28586a7261a06a4c8a31f20d40c37db, type: 3}
   m_PrefabInstance: {fileID: 1869778288}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1869778292}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -21201,6 +21201,11 @@ MonoBehaviour:
 --- !u!1 &1869778291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8566594840158429050, guid: b28586a7261a06a4c8a31f20d40c37db, type: 3}
+  m_PrefabInstance: {fileID: 1869778288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1869778292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7978475069245874644, guid: b28586a7261a06a4c8a31f20d40c37db, type: 3}
   m_PrefabInstance: {fileID: 1869778288}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1890027818
